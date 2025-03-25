@@ -1,0 +1,29 @@
+.main {
+	background:#fd8307;
+}
+
+.color1 {
+	background:#E8E8E8;
+	color:#fff;
+}
+
+aside {
+	background:#fd8307; 
+	color:#fff;
+}
+
+body {
+	background:#E8E8E8;
+}
+
+table, th, td {
+  padding: 10px;
+}
+
+
+article {
+	background:#CDCDCD; 
+	color:#fff;
+}
+
+

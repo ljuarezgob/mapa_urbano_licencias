@@ -1,0 +1,126 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simbología</title>
+
+    <!-- Enlace al CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+
+
+        /* Asegurarse de que el contenido del acordeón esté visible siempre */
+      /*  .accordion-collapse {*/
+       /*   display: block !important;  /* Forzar que el contenido esté siempre visible */
+       /* }*/
+        
+        
+            
+            </style>
+
+
+</head>
+<body>
+
+    <div class="container mt-3">
+
+    <!-- Sidebar -->
+    <div id="simbologia">
+        <h1 >Simbología</h1>
+
+        <div class="accordion" id="leyendasAccordion">
+            <!-- Leyenda para Centros Urbanos Polígonos -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                        Centros Urbanos Polígonos
+                    </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#leyendasAccordion">
+                    <div class="accordion-body">
+                        <img alt="Centros Urbanos Polígonos" src="https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_centros_urbanos_poligonos" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leyenda para Estructura Vial -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                        Estructura Vial
+                    </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#leyendasAccordion">
+                    <div class="accordion-body">
+                        <img alt="Estructura Vial" src="https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_estructura_vial" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leyenda para Utilización de Suelo -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading3">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        Utilización de Suelo
+                    </button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#leyendasAccordion">
+                    <div class="accordion-body">
+                        <img alt="Utilización de Suelo" src="https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_e3_utilizacion_suelo" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leyenda para Clasificación de Áreas -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading4">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        Clasificación de Áreas
+                    </button>
+                </h2>
+                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#leyendasAccordion">
+                    <div class="accordion-body">
+                        <img alt="Clasificación de Áreas" src="https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_clasificacion_areas" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leyenda para Centros Urbanos Puntos -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading5">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                        Centros Urbanos Puntos
+                    </button>
+                </h2>
+                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#leyendasAccordion">
+                    <div class="accordion-body">
+                        <img alt="Centros Urbanos Puntos" src="https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:ppdu2023_centros_urbanos_punto" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

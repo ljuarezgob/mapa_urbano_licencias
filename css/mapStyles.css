@@ -1,0 +1,479 @@
+@font-face {
+    font-family: "IsidoraRegular";
+    src: url('../fonts/IsidoraRegular.otf') format('opentype');
+    /* src: local("IsidoraRegular"), local("IsidoraRegular"),
+      url("../fonts/IsidoraRegular.otf") format("opentype"); */
+  }
+
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "IsidoraRegular", sans-serif;
+}
+
+li{
+    font-size: 14px;
+}
+
+.lorem {
+    font-style: italic;
+    color: #aaa;
+}
+
+.lorem1 {
+    font-style: italic;
+    color: #aaa;
+    margin: 8px;
+}
+/*Full screen Modal*/
+.fullscreen-modal .modal-dialog {
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .fullscreen-modal .modal-dialog {
+        width: 750px;
+    }
+
+    .panel-default {
+        border-color: #ddd;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 992px) {
+    .fullscreen-modal .modal-dialog {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .fullscreen-modal .modal-dialog {
+        width: 1170px;
+    }
+}
+
+.centered-li {
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    height: 100%;
+    
+    /* Asegura que el <li> tenga altura completa */
+}
+
+.centered-img {
+    /*display: block;*/
+    transition: transform 0.3s ease;
+
+    /* Agregamos una transición suave */
+}
+/* 
+.enlarge:hover  {
+    background-color: rgba(255, 113, 118, 0.308);    
+} */
+
+.activo{
+
+    background-color:rgba(255, 113, 118, 0.308);
+    /*CLase para dejar color cuando esta activo*/
+}
+
+.enlarge:hover .centered-img {
+    transform: scale(.85);
+    
+    /* Hacemos la imagen un 20% más grande al pasar el mouse sobre ella */
+}
+
+.image-container {
+    display: inline-block;
+    place-content: center;
+    padding-right: 5px;
+}
+
+.icon-image {
+    width: 10px;
+    /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+    vertical-align: middle;
+    /* Para alinear verticalmente con el texto */
+}
+.icon-image2 {
+    width: 25px;
+    /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+    vertical-align: middle;
+    /* Para alinear verticalmente con el texto */
+}
+.icon-image3 {
+    width: 18px;
+    /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+    vertical-align: middle;
+    /* Para alinear verticalmente con el texto */
+}
+
+
+/* BOTONES SWITCH */
+
+.material-switch>input[type="checkbox"] {
+    display: none;
+}
+
+.material-switch>label {
+    cursor: pointer;
+    height: 0px;
+    position: relative;
+    width: 40px;
+}
+
+.material-switch>label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: "";
+    height: 12px;
+    margin-top: -10px;
+    position: absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 34px;
+}
+/* 
+
+.material-switch>label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: "";
+    height: 16px;
+    margin-top: -8px;
+    position: absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch>label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: "";
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+} */
+
+
+
+.material-switch>label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: "";
+    height: 16px;
+    left: 0px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 16px;
+}
+
+.material-switch>input[type="checkbox"]:checked+label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+
+.material-switch>input[type="checkbox"]:checked+label::after {
+    background: inherit;
+    left: 20px;
+}
+
+
+/* Set map container height */
+#map {
+    height: 91vh;
+}
+
+/* Style for the title and image container */
+.map-info-container {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    left: 50px;
+    z-index: 900;
+    padding: 10px;
+    /*background-color: rgba(255, 255, 255, 0.8);*/
+    background-color: rgba(255, 255, 255, 0.63);
+    border-radius: 5px;
+    max-width: 900px;
+    /* Cambia este valor según tu preferencia */
+    margin: 0 auto;
+    /* Centra el contenedor horizontalmente */
+}
+
+/* Style for the title */
+.map-title {
+    font-size: 20px;
+    /*font-weight: bold;*/
+    margin-bottom: 5px;
+}
+
+/* Style for the image */
+/* Style for the image */
+.map-image {
+    width: 211px;
+    /* Ancho deseado */
+    height: 61px;
+    /* Altura deseada */
+    /* object-fit: cover; /* Para mantener la relación de aspecto */
+}
+
+.map-image1 {
+    width: 90px;
+    /* Ancho deseado */
+    height: 70px;
+    /* Altura deseada */
+    /* object-fit: cover; /* Para mantener la relación de aspecto */
+}
+
+.map-image2 {
+    width: 230px;
+    /* Ancho deseado */
+    height: 80px;
+    /* Altura deseada */
+    /* object-fit: cover; /* Para mantener la relación de aspecto */
+}
+
+.imaSideBar {
+    width: 150px;
+    height: 58px;
+}
+
+.imaSideBar2 {
+    width: 125px;
+    height: 54px;
+}
+
+/* Bootstrap class to make the info container retractable on small devices */
+@media (max-width: 100vh) {
+    .map-info-container {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .imaSideBar {
+        width: 150px;
+        height: 58px;
+    }
+
+    .imaSideBar2 {
+        width: 150px;
+        height: 58px;
+    }
+}
+
+.containerImage {
+    margin: 10px;
+    text-align: center;
+}
+
+.textSideBar {
+    text-align: justify;
+}
+
+.containerSwitches {
+    width: 100%;
+}
+
+.containerswitchesSquare {
+    width: 100%;
+    margin: 10px;
+}
+
+.material-switch.pull-right {
+    padding-top: 10px;
+}
+
+.styledaysWeek {
+    display: ruby;
+}
+
+.imagen-bannermain {
+    width: 100%;
+    height: 85px;
+    background-image: url("../img/banner_completo.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Pantallas menores a 1888px */
+@media (max-width: 1888px) {
+    .imagen-bannermain {
+        background-image: url("../img/banner_completo1.png");
+        height: 75px;
+    }
+}
+
+/* Pantallas menores a 1270px */
+@media (max-width: 1283px) {
+    .imagen-bannermain {
+        background-image: url("../img/banner_completo2.png");
+        height: 75px;
+    }
+}
+
+/* Pantallas menores a 1010px */
+@media (max-width: 1100px) {
+    .imagen-bannermain {
+        background-image: url("../img/banner_completo3.png");
+        height: 70px;
+    }
+}
+
+/* Pantallas menores a 760px */
+@media (max-width: 760px) {
+    .imagen-bannermain {
+        background-image: url("../img/banner_completo3.png");
+        height: 50px;
+    }
+}
+
+
+.boxShadow-text{
+    text-align: justify;
+    margin: -1px;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.marginText{
+   margin: 10px;
+}
+
+.boxShadows{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px !important;;
+}
+
+.texSider-sha{
+    padding-top: 15px;
+}
+
+.searcherStyles{
+    width: 100%;
+}
+
+.panel-heading{
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+@media (width: 768px) {
+    .containerSwitches {
+        width: 85%;
+    }
+
+    li.list-group-item {
+        display: inline;
+    }
+
+    .sidebar-content {
+        width: 300px;
+    }
+
+}
+/*
+.leaflet-marker-icon.leaflet-div-icon.leaflet-zoom-animated.leaflet-interactive {
+    margin-left: -15px;
+    margin-top: -15px;
+    width: 0px;
+    height: 0px !important;
+    transform: translate3d(1091px, 497px, 0px);
+    z-index: 497;
+    border: none;
+    border-radius: 30px;
+}
+*/
+
+
+.boton-servicios2 {
+    display: inline-block;
+    /* padding: 6px 12px; */
+    margin-bottom: 0;
+    font-size: 15px;
+    color: #000000;
+    font-weight: bold;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 2px solid transparent;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+.imagen-reporta{
+    width: 100%;
+    max-height: 200px;
+    height: auto;
+    margin: 1vh 0px;
+}
+
+.button-off {
+    border: none !important;
+    background: transparent !important;
+    width: 100%;
+    padding-right: 30px !important;
+}
+
+.sidebar-tabs, .sidebar-tabs > ul {
+    position: absolute;
+    width: 37px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align-last: center;
+}
+
+.form-control_coord {
+    display: block;
+    width: 94%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+
+#formacaptura-containerx {
+    width: 100%;
+    height: auto; /* Ajusta el alto según el contenido */
+    overflow-y: auto;
+}

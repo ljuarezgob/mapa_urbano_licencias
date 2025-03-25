@@ -1,0 +1,1514 @@
+<html lang="en">
+
+<head>
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3N7XLKY6R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q3N7XLKY6R');
+</script>
+
+</script>
+
+  <title>Mapa Urbano Zapopan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <link rel="icon" href="img/favicon.ico" type="image/ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/leaflet.css">
+  <link rel="stylesheet" href="css/leaflet-sidebar.css">
+  <link rel="stylesheet" href="css/paginate.css">
+  <link rel="stylesheet" href="css/ligne.css">
+  <link rel="stylesheet" href="css/MarkerCluster.css">
+  <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="css/L.Control.HtmlLegend.css">
+  <link rel="stylesheet" href="css/mapStyles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 
+  <!--Para los Switch -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  <!--Locate -->
+  <link rel="stylesheet" href="css/L.Control.Locate.css" />
+
+  <!-- BOOTS TEST -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <!-- BOOTS TEST -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/leaflet-sidebar.js"></script>
+  <script src="js/L.singleTile.js"></script>
+  <script src="js/ActiveLayers.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/paginate.js"></script>
+  <script type="text/javascript" src="js/funciones.js"></script>
+  <script src="js/leaflet.ajax.min.js"></script>
+  <script src="js/leaflet.markercluster.js"></script>
+  <script src="js/leaflet.geocsv-src.js"></script>
+  <script src="js/L.Control.HtmlLegend.js"></script>
+  <script src="js/layers.js"></script>
+
+    <!-- draw -->
+    <script src="src/leaflet-draw/Leaflet.draw.js"></script>
+    <script src="src/leaflet-draw/Leaflet.Draw.Event.js"></script>
+    <link rel="stylesheet" href="src/leaflet-draw/leaflet.draw.css" />
+    <script src="src/leaflet-draw/Toolbar.js"></script>
+    <script src="src/leaflet-draw/Tooltip.js"></script>
+    <script src="src/leaflet-draw/ext/GeometryUtil.js"></script>
+    <script src="src/leaflet-draw/ext/LatLngUtil.js"></script>
+    <script src="src/leaflet-draw/ext/LineUtil.Intersect.js"></script>
+    <script src="src/leaflet-draw/ext/Polygon.Intersect.js"></script>
+    <script src="src/leaflet-draw/ext/Polyline.Intersect.js"></script>
+    <script src="src/leaflet-draw/ext/TouchEvents.js"></script>
+    <script src="src/leaflet-draw/draw/DrawToolbar.js"></script>
+    <script src="src/leaflet-draw/draw/handler/Draw.Feature.js"></script>
+    <script src="src/leaflet-draw/draw/handler/Draw.SimpleShape.js"></script>
+    <script src="src/leaflet-draw/draw/handler/Draw.Polyline.js"></script>
+    <script src="src/leaflet-draw/draw/handler/Draw.Marker.js"></script>
+    <script src="src/leaflet-draw/draw/handler/Draw.CircleMarker.js"></script>
+    <script src="src/leaflet-draw/draw/handler/Draw.Circle.js"></script>
+    <script src="src/leaflet-draw/draw/handler/Draw.Polygon.js"></script>
+    <script src="src/leaflet-draw/draw/handler/Draw.Rectangle.js"></script>
+    <script src="src/leaflet-draw/edit/EditToolbar.js"></script>
+    <script src="src/leaflet-draw/edit/handler/EditToolbar.Edit.js"></script>
+    <script src="src/leaflet-draw/edit/handler/EditToolbar.Delete.js"></script>
+    <script src="src/leaflet-draw/Control.Draw.js"></script>
+    <script src="src/leaflet-draw/edit/handler/Edit.Poly.js"></script>
+    <script src="src/leaflet-draw/edit/handler/Edit.SimpleShape.js"></script>
+    <script src="src/leaflet-draw/edit/handler/Edit.Marker.js"></script>
+    <script src="src/leaflet-draw/edit/handler/Edit.CircleMarker.js"></script>
+    <script src="src/leaflet-draw/edit/handler/Edit.Circle.js"></script>
+    <script src="src/leaflet-draw/edit/handler/Edit.Rectangle.js"></script>
+  
+
+  <!-- MAPTILDER -->
+  <script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.1.1/maptiler-sdk.umd.js"></script>
+  <link href="https://cdn.maptiler.com/maptiler-sdk-js/v1.1.1/maptiler-sdk.css" rel="stylesheet" />
+  <script src="https://cdn.maptiler.com/leaflet-maptilersdk/v1.0.0/leaflet-maptilersdk.js"></script>
+
+  <!-- Esri Leaflet and Esri Leaflet Vector -->
+  <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+  <script src="https://unpkg.com/esri-leaflet-vector@4/dist/esri-leaflet-vector.js"></script>
+
+  <!--Busquedas-->
+  <script src="js/busquedacolonia.js"></script>
+
+  <!--Alert-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.js"></script>
+
+  <!--Locate -->
+  <script src="js/L.Control.Locate.js"></script>
+
+</head>
+
+<script type="text/javascript"> var bandera_uso_herramienta = 0;  </script>
+<!--  bandera_uso_herramienta    0 = por manzana    1 = draw   2 = medicion -->
+<script type="text/javascript"> var conenido_inmuebles = "";  </script> <!--  Consulta -->
+<script type="text/javascript"> var slideopen = 0;  </script> <!--  Consulta -->
+</head>
+
+<body style="font-family: IsidoraRegular;">
+  <div class="imagen-bannermain"></div>
+  
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Modal para mostrar seguimiento -->
+  <div class="modal" id="modalSeguimiento" style="z-index: 9000;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body" id="modalSeguimientoBody">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- Aquí se mostrarán los seguimientos -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar sidebar-left leaflet-touch collapsed">
+    <!-- Nav tabs -->
+    <div class="sidebar-tabs">
+
+      <ul role="tablist">
+        <li class="centered-li "><a class="enlarge " href="#home" role="tab"><i class="fa fa-bars" class="container"></i></a></li>
+        <li class="centered-li "><a class="enlarge " href="#busquedacol" role="tab" data-toggle="tooltip" title="Búsqueda por colonia"><i class="fa fa-search"></i></a></li>
+                
+        <li class="centered-li item itemBorder" data-replacement-src="img/activeimage/info.png">
+          <a href="#informaciongeneral" role="tab" data-toggle="tooltip" data-placement="right"
+            title="Información general" class="enlarge">
+            <img src="img/ico_info.png" alt="Información general" width="25" height="25" class="centered-img" /></i>
+          </a>
+        </li>
+
+
+        <li class="centered-li item itemBorder" data-replacement-src="img/activeimage/estrategia.png">
+          <a href="#ppdu_estrategias" role="tab"  data-toggle="tooltip" title="PPDU Estrategias" class="enlarge " >
+            <img src="img/ico_estrategia.png" alt="PPDU Estrategias" width="25" height="25" class="centered-img"  />
+          </a>
+        </li>
+
+
+        <li class="centered-li item itemBorder" data-replacement-src="img/activeimage/planmun.png">
+          <a href="#pmd" role="tab" data-toggle="tooltip" title="Plan Municipal de Desarrollo" class="enlarge">
+            <img src="img/ico_planmun.png" alt="Zapopan al cubo" width="25" height="25" class="centered-img" />
+          </a>
+        </li>
+
+        
+        <li class="centered-li item itemBorder" data-replacement-src="img/activeimage/onoff.png"> 
+          <a href="#apagarcapas" role="tab" data-toggle="tooltip" title="Limpiar pantalla" class="enlarge">
+             <img src="img/off.png" alt="Limpiar pantalla" width="25" height="25" class="centered-img" />
+            </a>
+        </li>
+        
+      </ul>
+     <ul role="tablist">
+       <!--  <li><a href="#unidad" role="tab" data-toggle="tooltip" title="Manual de usuario"> <img src="img/manual.png" alt="Limpiar pantalla" width="25" height="25"
+          class="centered-img" /></i></a>
+        </li>-->
+      </ul>
+    </div>
+
+
+    <!-- TAB panes -->
+    <div class="sidebar-content">
+
+      <!-- ***********************************  HOME  ********************************** -->
+      <div class="sidebar-pane active" id="home">
+        <h1 class="sidebar-header">
+          Visor Cartográfico 
+          <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+        </h1>
+        <div class="texSider-sha">
+          <div class="textSideBar boxShadow-text">
+            <p class="lorem1">Objetivo General:</p>
+           <!--<p class="lorem1">El Gobierno de Zapopan siempre ha estado comprometido con mejorar la vida de las y los ciudadanos; siendo un gobierno abierto, innovador, transparente y escuchando, atendiendo sus necesidades, mejorando y acercando los servicios y espacios públicos que ofrece. </p>
+            <p class="lorem1">Por ello, te damos la bienvenida a GPZ un mapa interactivo en el que podrás visualizar y ubicar en Zapopan distintos servicios y espacios públicos que ponemos a disposición de la ciudadanía.</p>
+            -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ***********************************  BUSQUEDA COORDENADAS **********************************  
+      <div class="sidebar-pane" id="busquedas">
+        <h1 class="sidebar-header">Búsqueda por coordenadas<span class="sidebar-close"><i
+              class="fa fa-caret-left"></i></span></h1>
+        <div class="form-group">
+          <h4> Geográficas </h4>
+          <label for="latitud">Latitud:</label>
+          <input type="text" class="form-control" id="txtLatitud" value="20.721718531815696">
+        </div>
+        <div class="form-group">
+          <label for="longitud">Longitud:</label>
+          <input type="text" class="form-control" id="txtLongitud" value="-103.38974833488466">
+        </div>
+        <div class="form-group">
+          <button id="btnFindCoordenada" type="button" class="btn btn-default" data-toggle="modal"
+            data-target="#myModal" onclick="busquedacoordenada()">Ir</button>
+        </div>
+        <div class="form-group">
+          <h4> UTM </h4>
+          <label for="latitud">Y:</label>
+          <input type="text" class="form-control" id="txtutmy" value="2292180.483">
+        </div>
+        <div class="form-group">
+          <label for="longitud">X:</label>
+          <input type="text" class="form-control" id="txtutmx" value="667671.829">
+        </div>
+        <div class="form-group">
+          <button id="btnFindCoordenadaUTM" type="button" class="btn btn-default" data-toggle="modal"
+            data-target="#myModal" onclick="busquedacoordenadautm()">Ir</button>
+        </div>
+        <div class="form-group">
+          <button id="btnLimpiar" type="button" class="btn btn-default" data-mdb-ripple-color="dark" data-toggle="modal"
+            data-target="#myModal" onclick="busquedacoordenasLimpiar()">Limpiar</button>
+        </div>
+      </div>-->
+
+      <!-- ***********************************  BUSQUEDA COLONIA **********************************  -->
+
+      <div class="sidebar-pane" id="busquedacol">
+        <h1 class="sidebar-header">Búsqueda de colonia<span class="sidebar-close"><i
+              class="fa fa-caret-left"></i></span></h1>
+
+        <div id="myModal">
+          <div class="modal-header">
+            <div class="form-group searcherStyles">
+              <label for="latitud">Nombre de colonia </label>
+              <input type="text" id="txtDomicilio2" placeholder="Nombre" value="" class="form-control">
+              <br />
+              <div class="row">
+
+                <input type="hidden" id="searchBox">
+                <div class="col">
+
+                  <button id="btnFindDomicilio2" type="button" class="btn btn-default" style="width: 100%;"
+                    onclick="busquedacolonia();">
+                    &nbsp; &nbsp;&nbsp; Buscar &nbsp;&nbsp; </button>
+                </div>
+
+                <div class="col">
+                  <button id="btnLimpiarC" type="button" class="btn btn-default" style="width: 100%;"
+                    onclick="limpia_busqueda_colonias();">
+                    &nbsp; &nbsp; Limpiar &nbsp;&nbsp; </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--</div>  -->
+
+
+        <!-- Modal body -->
+        <table class="table table-striped" id="tablaDomTit">
+          <thead>
+            <tr>
+              <th>Nombre
+            </tr>
+          </thead>
+        </table>
+        <table class="myTable table hover" id="tablaDom">
+          <tbody>
+          </tbody>
+        </table>
+
+      
+        <h1 class="sidebar-header">Búsqueda por coordenadas<span class="sidebar-close"><i
+          class="fa fa-caret-left"></i></span></h1>
+    <div class="form-group">
+      <h4> Geográficas </h4>
+      <label for="latitud">Latitud:</label>
+      <input type="text" class="form-control_coord" id="txtLatitud" value="20.721718531815696">
+    </div>
+    <div class="form-group">
+      <label for="longitud">Longitud:</label>
+      <input type="text" class="form-control_coord" id="txtLongitud" value="-103.38974833488466">
+    </div>
+    <div class="form-group">
+      <button id="btnFindCoordenada" type="button" class="btn btn-default" data-toggle="modal"
+        data-target="#myModal" onclick="busquedacoordenada()">Ir</button>
+    </div>
+    <div class="form-group">
+      <h4> UTM </h4>
+      <label for="latitud">Y:</label>
+      <input type="text" class="form-control_coord" id="txtutmy" value="2292180.483">
+    </div>
+    <div class="form-group">
+      <label for="longitud">X:</label>
+      <input type="text" class="form-control_coord" id="txtutmx" value="667671.829">
+    </div>
+    <div class="form-group">
+      <button id="btnFindCoordenadaUTM" type="button" class="btn btn-default" data-toggle="modal"
+        data-target="#myModal" onclick="busquedacoordenadautm()">Ir</button>
+    </div>
+    <div class="form-group">
+      <button id="btnLimpiar" type="button" class="btn btn-default" data-mdb-ripple-color="dark" data-toggle="modal"
+        data-target="#myModal" onclick="busquedacoordenasLimpiar()">Limpiar</button>
+    </div>
+        
+      </div>
+
+      
+
+      <!-- ***********************************  INFORMACION GENERAL **********************************  -->
+
+      <div class="sidebar-pane" id="informaciongeneral">
+        <h1 class="sidebar-header">Información general <span class="sidebar-close"><i
+              class="fa fa-caret-left"></i></span></h1>
+        <div class="containerSwitches">
+          <div class="row">
+            <div class="containerswitchesSquare">
+              <div class="panel panel-default boxShadows">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Selecciona la capa a visualizar</div>
+                <!-- List group -->
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="image-container">
+                      <!--  <img src="./img/cubo.png" alt="Imagen" class="icon-image">-->
+                    </div>
+                    Límite municipal
+                    <div class="material-switch pull-right">
+                      <input id="sw_general_limite" name="sw_general_limite" type="checkbox" />
+                      <label for="sw_general_limite" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                      <!--  <img src="./img/cubo.png" alt="Imagen" class="icon-image">-->
+                    </div>
+                    Límite de Colonias
+                    <div class="material-switch pull-right">
+                      <input id="sw_colonias" name="sw_colonias" type="checkbox" />
+                      <label for="sw_colonias" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                      <!--  <img src="./img/cubo.png" alt="Imagen" class="icon-image">-->
+                    </div>
+                    Ortofoto Zapopan 2023
+                    <div class="material-switch pull-right">
+                      <input id="sw_zapopanfull" name="sw_zapopanfull" type="checkbox" />
+                      <label for="sw_zapopanfull" class="label-success"></label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ***********************************  PLANES PARCIALES **********************************  -->
+
+      <div class="sidebar-pane" id="ppdu_estrategias">
+        <h1 class="sidebar-header">PPDU estrategias <span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+        <div class="containerSwitches">
+          <div class="row">
+            <div class="containerswitchesSquare">
+              <div class="panel panel-default boxShadows">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Selecciona la capa a visualizar</div>
+                <!-- List group -->
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="image-container"></div>
+                   <!--<img src="./img/camion.png" alt="Imagen" class="icon-image2"> -->
+                    Utilización de suelo
+                    <div class="material-switch pull-right">
+                      <input id="sw_utilizacion_suelo" name="sw_utilizacion_suelo" type="checkbox" />
+                      <label for="sw_utilizacion_suelo" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item  ">
+                    <div class="image-container">
+                    </div>
+                    Clasificación de areas
+                    <div class="material-switch pull-right ">
+                      <input id="sw_clasificacion_areas" name="sw_clasificacion_areas" type="checkbox" />
+                      <label for="sw_clasificacion_areas" class="label-success"></label>
+                    </div>
+                  </li>
+
+                  <li class="list-group-item  ">
+                    <div class="image-container">
+                    </div>
+                    Estructura Vial
+                    <div class="material-switch pull-right ">
+                      <input id="sw_estructura_vial" name="sw_estructura_vial" type="checkbox" />
+                      <label for="sw_estructura_vial" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                    </div>
+                    Pol. Protección al Patrimonio Edificado
+                    <div class="material-switch pull-right">
+                      <input id="sw_zpn_ppe" name="sw_zpn_ppe" type="checkbox" />
+                      <label for="sw_zpn_ppe" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                    </div>
+                    Centros Urbanos Poligonos
+                    <div class="material-switch pull-right">
+                      <input id="sw_centros_urbanos_pol" name="sw_centros_urbanos_pol" type="checkbox" />
+                      <label for="sw_centros_urbanos_pol" class="label-success"></label>
+                    </div>
+                  </li>
+
+                  <li class="list-group-item">
+                    <div class="image-container">
+                    </div>
+                    Centros Urbanos Puntos
+                    <div class="material-switch pull-right">
+                      <input id="sw_centros_urbanos_pto" name="sw_centros_urbanos_pto" type="checkbox" />
+                      <label for="sw_centros_urbanos_pto" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                    </div>
+                    Predios
+                    <div class="material-switch pull-right">
+                      <input id="sw_zpn_predios" name="sw_zpn_predios" type="checkbox" />
+                      <label for="sw_zpn_predios" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                    </div>
+                    Arroyo Vehicular
+                    <div class="material-switch pull-right">
+                      <input id="sw_zpn_arroyo_vehicular" name="sw_zpn_arroyo_vehicular" type="checkbox" />
+                      <label for="sw_zpn_arroyo_vehicular" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                    </div>
+                    Área Competencia POELZ
+                    <div class="material-switch pull-right">
+                      <input id="sw_division_politica" name="sw_division_politica" type="checkbox" />
+                      <label for="sw_division_politica" class="label-success"></label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ***********************************   Programa Municipal de Desarrollo **********************************  -->
+
+      <div class="sidebar-pane" id="pmd">
+        <h1 class="sidebar-header"> Programa municipal de desarrollo<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+        <div class="containerSwitches">
+          <div class="row">
+            <div class="containerswitchesSquare">
+              <div class="panel panel-default boxShadows">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Selecciona la capa a visualizar</div>
+                <!-- List group -->
+                <ul class="list-group ">
+                  <li class="list-group-item  ">
+                    <div class="image-container">
+                   <!--   <img src="./img/tian01.png" alt="Imagen" class="icon-image">-->
+                    </div>
+                    Límite Área Urbana Consolidada
+                    <div class="material-switch pull-right ">
+                      <input id="sw_zpn_zpnauc" name="sw_zpn_zpnauc" type="checkbox" />
+                      <label for="sw_zpn_zpnauc" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item  ">
+                    <div class="image-container">
+                     </div>
+                     Centros de Población Rurales
+                    <div class="material-switch pull-right ">
+                      <input id="sw_centros_poblacion_rurales" name="sw_centros_poblacion_rurales" type="checkbox" />
+                      <label for="sw_centros_poblacion_rurales" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item  ">
+                    <div class="image-container">
+                      </div>
+                      Ciclovías
+                    <div class="material-switch pull-right ">
+                      <input id="sw_ciclovias" name="sw_ciclovias" type="checkbox" />
+                      <label for="sw_ciclovias" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                      </div>
+                      Corredor Urbano
+                    <div class="material-switch pull-right">
+                      <input id="sw_corredor_urbano" name="sw_corredor_urbano" type="checkbox" />
+                      <label for="sw_corredor_urbano" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                      </div>
+                      Espacios Verdes
+                    <div class="material-switch pull-right">
+                      <input id="sw_diag_espacios_verdes" name="sw_diag_espacios_verdes" type="checkbox" />
+                      <label for="sw_diag_espacios_verdes" class="label-success"></label>
+                      </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                      </div>
+                      Corredor Verde
+                    <div class="material-switch pull-right">
+                      <input id="sw_corredor_verde" name="sw_corredor_verde" type="checkbox" />
+                      <label for="sw_corredor_verde" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Áreas de Protección a Inst. Especiales
+                    <div class="material-switch pull-right">
+                      <input id="sw_insta_especiales" name="sw_insta_especiales" type="checkbox" />
+                      <label for="sw_insta_especiales" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Línea Drenaje
+                    <div class="material-switch pull-right">
+                      <input id="sw_linea_drenaje" name="sw_linea_drenaje" type="checkbox" />
+                      <label for="sw_linea_drenaje" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Proyecto Colector
+                    <div class="material-switch pull-right">
+                      <input id="sw_proyecto_colector" name="sw_proyecto_colector" type="checkbox" />
+                      <label for="sw_proyecto_colector" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Áreas Naturales Protegidas
+                    <div class="material-switch pull-right">
+                      <input id="sw_zpn_anp" name="sw_zpn_anp" type="checkbox" />
+                      <label for="sw_zpn_anp" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Cuerpos de Agua
+                    <div class="material-switch pull-right">
+                      <input id="sw_cuerpos_agua" name="sw_cuerpos_agua" type="checkbox" />
+                      <label for="sw_cuerpos_agua" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Áreas de Desarrollo Controlado
+                    <div class="material-switch pull-right">
+                      <input id="sw_area_desarrollo_controlado" name="sw_area_desarrollo_controlado" type="checkbox" />
+                      <label for="sw_area_desarrollo_controlado" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Áreas de Conservación Ecológica
+                    <div class="material-switch pull-right">
+                      <input id="sw_conservacion_eco" name="sw_conservacion_eco" type="checkbox" />
+                      <label for="sw_conservacion_eco" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Restricción 500 métros Picachos
+                    <div class="material-switch pull-right">
+                      <input id="sw_relleno_picachospol500" name="sw_relleno_picachospol500" type="checkbox" />
+                      <label for="sw_relleno_picachospol500" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Relleno Sanitario
+                    <div class="material-switch pull-right">
+                      <input id="sw_relleno_picachospol" name="sw_relleno_picachospol" type="checkbox" />
+                      <label for="sw_relleno_picachospol" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Planta de Picachos-Hasar´s
+                    <div class="material-switch pull-right">
+                      <input id="sw_relleno_picachos" name="sw_relleno_picachos" type="checkbox" />
+                      <label for="sw_relleno_picachos" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Subestación Electrica
+                    <div class="material-switch pull-right">
+                      <input id="sw_subestacion_electrica" name="sw_subestacion_electrica" type="checkbox" />
+                      <label for="sw_subestacion_electrica" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Plantas de Tratamiento
+                    <div class="material-switch pull-right">
+                      <input id="sw_planta_tratamiento" name="sw_planta_tratamiento" type="checkbox" />
+                      <label for="sw_planta_tratamiento" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Área de Prevención Ecológica
+                    <div class="material-switch pull-right">
+                      <input id="sw_cerro_tepopote" name="sw_cerro_tepopote" type="checkbox" />
+                      <label for="sw_cerro_tepopote" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Destino De Reservas Urbanas
+                    <div class="material-switch pull-right">
+                      <input id="sw_reserva_urbana" name="sw_reserva_urbana" type="checkbox" />
+                      <label for="sw_reserva_urbana" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Reservas Urbanas Consolidación
+                    <div class="material-switch pull-right">
+                      <input id="sw_ru_consolidacion" name="sw_ru_consolidacion" type="checkbox" />
+                      <label for="sw_ru_consolidacion" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     </div>
+                     Zonificación Primaria
+                    <div class="material-switch pull-right">
+                      <input id="sw_zonificacion_primaria" name="sw_zonificacion_primaria" type="checkbox" />
+                      <label for="sw_zonificacion_primaria" class="label-success"></label>
+                    </div>
+                  </li>
+               
+               
+               
+               
+               
+               
+                </ul>
+              </div>
+
+            <!--  <div class="boxShadow-text">
+                <p class="marginText">
+                  La o el ciudadano que se interese en trabajar algún espacio en el tianguis
+                  deberá presentarse a la 7:00 h en el tianguis de su preferencia. La o el
+                  coordinador titular del tianguis le brindará apoyo de acuerdo con el espacio
+                  disponible para comerciantes de rol, como es el caso de quienes asisten por
+                  primera vez o que no tienen un lugar ya asignado.
+                </p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ***********************************  PARQUES Y JARDINES   **********************************  -->
+
+      <div class="sidebar-pane" id="parquesyjardines">
+        <h1 class="sidebar-header">Parques y Jardines<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+        </h1>
+        <div class="containerSwitches">
+          <div class="row">
+            <div class="containerswitchesSquare">
+              <div class="panel panel-default boxShadows">
+                <div class="panel-heading">Selecciona la capa a visualizar</div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="image-container">
+                     <!--   <img src="./img/tian04.png" alt="Imagen" class="icon-image"> -->
+                    </div>
+                    Parques y jardines públicos
+                    <div class="material-switch pull-right">
+                      <input id="sw_pparques" name="sw_pparques" type="checkbox" />
+                      <label for="sw_pparques" class="label-success"></label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="image-container">
+                    <!--    <img src="./img/arbolemblema.png" alt="Imagen" class="icon-image3"> -->
+                    </div>
+                    Árboles con valor cultural y patrimonial
+                    <div class="material-switch pull-right">
+                      <input id="sw_parboles" name="sw_parboles" type="checkbox" />
+                      <label for="sw_parboles" class="label-success"></label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+      
+      <!-- ***********************************  LIMPIAR PANTALLA **********************************  -->
+
+      <div class="sidebar-pane" id="apagarcapas">
+        <h1 class="sidebar-header">Limpiar pantalla<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+        </h1>
+        <div class="containerSwitches">
+          <div class="row">
+            <div class="containerswitchesSquare">
+              <div class="panel panel-default boxShadows">
+               <!--  <div class="panel-heading">Selecciona la capa a visualizar</div>-->
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="image-container">
+                      <button class="boton-servicios2" class="button-off" id="turnOffAllLayersButton">Limpiar pantalla</button>
+                    </div>
+                       <div class="material-switch pull-right">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ***********************************  MENSAJES  **********************************  -->
+      <div class="sidebar-pane" id="messages">
+        <h1 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+      </div>
+
+      <div class="sidebar-pane" id="unidad">
+        <h1 class="sidebar-header">
+         Visor Cartográfico
+          <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+        </h1>
+        </br>
+       <!--    <p class="lorem">Objetivo general:</p>
+        <p class="lorem"></p>
+        <p class="lorem">Agregar Texto.</p>-->
+        </br>
+
+        <p> <a href="./manual/030624-UBICA-ZAPOPAN.pdf" target="_blank"
+            class="btn btn-success btn-block "> Manual de Usuario</a> </p>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="map"
+    class="sidebar-map leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+    tabindex="0" style="position: relative;">
+
+    <script>
+      var TablaConsulta = document.getElementById("tablaDom");
+      TablaConsulta.oldHTML = TablaConsulta.innerHTML;
+
+      var map = L.map('map', {
+        maxZoom: 25,
+        zoom: 17,
+      });
+ 
+        // Crea el botón para ubicar la posición del usuario
+      L.control.locate().addTo(map);
+      map.setView([20.72767, -103.39045], 16);
+      map.flyTo([20.72767, -103.39045], 12);
+
+      var mb0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 21,
+        attribution: 'Map data &copy; OpenStreetMap contributors'
+      });
+
+      var mb2 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 21,
+        attribution: 'Map data &copy; OpenStreetMap contributors'
+      });
+
+      var LightGrey = L.esri.Vector.vectorBasemapLayer("OSM:LightGray", {
+        minZoom: 1,
+        maxZoom: 21,
+        apikey:
+          "AAPK398d5eb2c3ba4373aee5adf27672e301MwAzT4QoHTKTlPS86JAux5T5-h40SomlJLxVyqn-8aHGGf4a61XuSJDuShwfYVp9",
+      }).addTo(map);
+
+      //Mapas Base
+      Basemaps = {
+        "Mapa Base Gris": LightGrey,
+        //   "Mapa base": mb0,
+        "Satelital": mb2,
+
+      };
+
+      sidebar = L.control.sidebar('sidebar').addTo(map);
+
+      //  LAYERS
+      Overlays = {
+      };
+
+      ctlLayers = L.control.activeLayers(Basemaps, Overlays)
+      ctlLayers.addTo(map)
+      overlayLayers = ctlLayers.getActiveOverlayLayers()
+
+
+      /************* INICIO LEYENDA POLIGONOS *****************/
+      var grafico = "";
+
+      drawnItems = L.featureGroup().addTo(map);
+      map.addControl(
+      new L.Control.Draw({
+        edit: {
+          featureGroup: drawnItems,
+          poly: {
+            allowIntersection: false,
+          },
+        },
+        draw: {
+          polygon: {
+            allowIntersection: false,
+            showArea: true,
+          },
+        },
+      })
+    );
+
+
+  // Truncate value based on number of decimals
+  var _round = function (num, len) {
+    return Math.round(num * Math.pow(10, len)) / Math.pow(10, len);
+  };
+  // Helper method to format LatLng object (x.xxxxxx, y.yyyyyy)
+  var strLatLng = function (latlng) {
+    return "(" + _round(latlng.lat, 8) + ", " + _round(latlng.lng, 8) + ")";
+  };
+
+  var strQueryAll = function (latlngs, metros, geo) {
+    // geo = poligono, rectangulo, circulo,
+    var coordenadas_origen = String(latlngs);
+    var c1 = coordenadas_origen.replaceAll(", ", " ");
+    var c2 = c1.replaceAll("),LatLng(", ",");
+    var c3 = c2.replaceAll("LatLng(", "");
+    var c4 = c3.replaceAll(")", "");
+    var c5 = "";
+    var arr_c4 = c4.split(",");
+    var cont = arr_c4.length;
+    for (var i = 0; i < cont; i++) {
+      c5 =
+        c5 +
+        "," +
+        arr_c4[i].substring(arr_c4[i].indexOf("-", 0), arr_c4[i].length) +
+        " " +
+        arr_c4[i].substring(0, arr_c4[i].indexOf(" ", 0));
+    }
+    var c6 = c5.replace(",", "");
+    var c7 = c6 + "," + c6.substring(0, c6.indexOf(",", 0));
+    if (geo == "poligono" || geo == "rectangulo") {
+      //var query =  'SELECT count(*)  as cantidad FROM inegi.manzanas_censo2020  where ST_Intersects(geom, ST_Transform(ST_GeomFromText(\'POLYGON(('+ c7 + ' ))\',4326),32613))';
+      var where =
+        "ST_Within(geom, ST_Transform(ST_GeomFromText('POLYGON((" +
+        c7 +
+        " ))',4326),32613))";
+    } else if (geo == "circulo") {
+      var c8 = c7.replace(",", "");
+      //var query =  'SELECT count(*)  as cantidad FROM inegi.manzanas_censo2020  where ST_Intersects(geom, ST_Buffer(ST_Transform(ST_GeomFromText(\'POINT('+ c8 + ' )\',4326),32613),' + metros+'))';
+      var where =
+        "ST_Within(geom, ST_Buffer(ST_Transform(ST_GeomFromText('POINT(" +
+        c8 +
+        " )',4326),32613)," +
+        metros +
+        "))";
+    }
+    // console.log (query);
+    return where;
+  };
+
+  var getPopupContent = function (layer) {
+    // ******************************************             Marker - add lat/long   **** Geometria Circular ****
+    if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
+      //  return strLatLng(layer.getLatLng());
+
+      var center = layer.getLatLng();
+      var radius = layer.getRadius();
+
+      //return  strQueryCircle (center,radius);
+      grafico = "circulo";
+      return strQueryAll(center, radius, "circulo");
+
+      // ******************************************          Circle - lat/long, radius
+    } else if (layer instanceof L.Circle) {
+      var center = layer.getLatLng(),
+        radius = layer.getRadius();
+
+      console.log(center);
+      console.log(radius);
+      return (
+        "Center: " +
+        strLatLng(center) +
+        "<br />" +
+        "Radius: " +
+        _round(radius, 2) +
+        " m"
+      );
+      //  return strLatLng;
+
+      // ********************************************         Rectangle/Polygon - area
+    } else if (layer instanceof L.Polygon) {
+      var latlngs = layer._defaultShape
+          ? layer._defaultShape()
+          : layer.getLatLngs(),
+        area = L.GeometryUtil.geodesicArea(latlngs);
+      //return L.GeometryUtil.readableArea(area, true);
+
+      //return  strQueryPoly (latlngs);
+      grafico = "polygono";
+      return strQueryAll(latlngs, 0, "rectangulo");
+
+      // Polyline - distance
+    } else if (layer instanceof L.Polyline) {
+      var latlngs = layer._defaultShape
+          ? layer._defaultShape()
+          : layer.getLatLngs(),
+        distance = 0;
+      if (latlngs.length < 2) {
+        return "Distance: N/A";
+      } else {
+        for (var i = 0; i < latlngs.length - 1; i++) {
+          distance += latlngs[i].distanceTo(latlngs[i + 1]);
+        }
+        return "Distance: " + _round(distance, 2) + " m";
+      }
+    }
+    return null;
+  };
+
+  // Object created - bind popup to layer, add to feature group
+  map.on(L.Draw.Event.CREATED, function (event) {
+    bandera_uso_herramienta = 1;
+    var layer = event.layer;
+    var content = getPopupContent(layer);
+    if (content !== null) {
+      //  layer.bindPopup(content);   // original
+      querygrafic = content;
+      var popupOutput = "";
+      popupOutput +=
+        '<iframe width="550" height="400"  class="responsive-iframe" marginWidth = "2" id="iframetabla" frameBorder="0" src="./tabla/datos_censo_sumatoria.php?where=' +
+        querygrafic +
+        "&mapa=s&grafico=" +
+        grafico +
+        ' "></iframe> ';
+      layer.bindPopup(popupOutput, { maxWidth: 550, maxHeight: 400 });
+    }
+    drawnItems.addLayer(layer);
+    // bandera_uso_herramienta =0;
+  });
+
+  // Object(s) edited - update popups
+  map.on(L.Draw.Event.EDITED, function (event) {
+    //bandera_uso_herramienta  = 1;
+    var layers = event.layers,
+      content = null;
+    layers.eachLayer(function (layer) {
+      content = getPopupContent(layer);
+      if (content !== null) {
+        //layer.setPopupContent(content);
+        querygrafic = content;
+        var popupOutput = "";
+        popupOutput +=
+          '<iframe width="550" height="400"  class="responsive-iframe" marginWidth = "2" id="iframetabla" frameBorder="0" src="./tabla/datos_censo_sumatoria.php?where=' +
+          querygrafic +
+          "&mapa=s&grafico=" +
+          grafico +
+          ' "></iframe> ';
+        layer.bindPopup(popupOutput, { maxWidth: 550, maxHeight: 400 });
+        // bandera_uso_herramienta =0;
+      }
+    });
+  });
+  
+  /************* FIN LEYENDA POLIGONOS *****************/
+
+      function SliderContenido(gid, long, lat) {
+        document.getElementById("contenido").innerHTML = "";
+        document.getElementById("contenido").innerHTML = document.getElementById("contenido").innerHTML + "<iframe width='100%' height='100%'  marginWidth = '2' frameBorder='0'  scrolling='no'  src='./tabla/bienesinmuebles.php?gid= " + gid + "&long=" + long + "&lat=" + lat + "&mapa=s'> </iframe>";
+        ctlSidebar.show();
+        /*ctlEasybutton.state('cerrar');*/
+        var visible = ctlSidebar.isVisible();
+        if (visible) {
+        } else {
+          ctlSidebar.show();
+
+        }
+      };
+
+    </script>
+
+    <script>
+      /* CAPAS*/
+      /* SIMBOLOGIA DE CAMIONES DE BASURA */
+      var iconingps = L.icon({
+        iconUrl: "img/camion.png",
+        iconSize: [40, 25],
+        iconAnchor: [19, 10],
+        popupAnchor: [0, -45],
+      });
+
+      $(document).ready(function () {
+        function toggleLayer(checkboxId, layer) {
+          $("#" + checkboxId).change(function () {
+            if ($(this).is(":checked")) {
+              // Mostrar la capa en el mapa
+              map.addLayer(layer);
+            } else {
+              // Ocultar la capa en el mapa
+              map.removeLayer(layer);
+            }
+          });
+        }
+
+        toggleLayer("sw_zapopanfull", l_zapopanfull);
+        toggleLayer("sw_general_limite", l_zpn_LimiteMunicipal);
+        toggleLayer("sw_colonias", l_LayerColonias);
+        toggleLayer("sw_utilizacion_suelo", l_utilizacion_suelo);
+        toggleLayer("sw_clasificacion_areas", l_clasificacion_areas);
+        toggleLayer("sw_clasificacion_areestructura_vial", l_estructura_vial);
+        toggleLayer("sw_zpn_ppe", l_zpn_ppe);
+        toggleLayer("sw_centros_urbanos_pol", l_centros_urbanos_pol);   
+        toggleLayer("sw_centros_urbanos_pto", l_centros_urbanos_pto);
+        toggleLayer("sw_zpn_predios", l_zpn_predios);
+        toggleLayer("sw_zpn_arroyo_vehicular", l_zpn_arroyo_vehicular);
+        toggleLayer("sw_division_politica", l_zpn_division_politica);  
+        toggleLayer("sw_zpn_zpnauc", l_zpn_zpnauc);
+        toggleLayer("sw_centros_poblacion_rurales", l_zpn_centros_poblacion_rurales);
+        toggleLayer("sw_ciclovias", l_zpn_ciclovias);
+        toggleLayer("sw_corredor_urbano ", l_zpn_corredor_urbano);
+        toggleLayer("sw_diag_espacios_verdes", l_zpn_diag_espacios_verdes);
+        toggleLayer("sw_corredor_verde ", l_zpn_corredor_verde);
+        toggleLayer("sw_insta_especiales", l_insta_especiales);
+        toggleLayer("sw_linea_drenaje", l_zpn_linea_drenaje);
+        toggleLayer("sw_proyecto_colector", l_zpn_proyecto_colector);
+        toggleLayer("sw_zpn_anp", l_zpn_anp);
+        toggleLayer("sw_cuerpos_agua", l_zpn_cuerpos_agua);
+        toggleLayer("sw_conservacion_eco", l_zpn_conservacion_eco);
+        toggleLayer("sw_relleno_picachospol500", l_zpn_relleno_picachospol500);
+        toggleLayer("sw_relleno_picachospol", l_zpn_relleno_picachospol);
+        toggleLayer("sw_relleno_picachos", l_zpn_relleno_picachos);
+        toggleLayer("sw_subestacion_electrica", l_zpn_subestacion_electrica);
+        toggleLayer("sw_planta_tratamiento", l_zpn_planta_tratamiento);
+        toggleLayer("sw_cerro_tepopote ", l_zpn_cerro_tepopote);
+        toggleLayer("sw_reserva_urbana", l_zpn_reserva_urbana);
+        toggleLayer("sw_ru_consolidacion", l_zpn_ru_consolidacion);
+        toggleLayer("sw_zonificacion_primaria", l_zpn_zonificacion_primaria);
+        toggleLayer("sw_area_desarrollo_controlado", l_area_desarrollo_controlado);
+
+
+        // Agrega más llamadas a toggleLayer para cada checkbox y capa adicional...
+
+        // Función para apagar todas las capas
+        function turnOffAllLayers(layers) {
+          layers.forEach(function (layerObj) {
+            let checkboxId = layerObj.checkboxId;
+            let layer = layerObj.layer;
+
+            if ($("#" + checkboxId).is(":checked")) {
+              $("#" + checkboxId).prop("checked", false);
+              map.removeLayer(layer);
+            }
+          });
+        }
+
+        // Utiliza la función para cada checkbox y capa correspondiente
+        const layers = [
+          { checkboxId: "sw_zapopanfull", layer: l_zapopanfull },
+          { checkboxId: "sw_general_limite", layer: l_zpn_LimiteMunicipal },
+          { checkboxId: "sw_colonias", layer: l_LayerColonias },
+          { checkboxId: "sw_utilizacion_suelo", layer: l_utilizacion_suelo },
+          { checkboxId: "sw_clasificacion_areas", layer: l_clasificacion_areas },
+          { checkboxId: "sw_estructura_vial", layer: l_estructura_vial },
+          { checkboxId: "sw_zpn_ppe", layer: l_zpn_ppe },
+          { checkboxId: "sw_centros_urbanos_pol", layer: l_centros_urbanos_pol },
+          { checkboxId: "sw_centros_urbanos_pto", layer: l_centros_urbanos_pto },
+          { checkboxId: "sw_zpn_predios", layer: l_zpn_predios },
+          { checkboxId: "sw_zpn_arroyo_vehicular", layer: l_zpn_arroyo_vehicular },
+          { checkboxId: "sw_division_politica", layer: l_zpn_division_politica },
+          { checkboxId: "sw_zpn_zpnauc", layer: l_zpn_zpnauc },
+          { checkboxId: "sw_centros_poblacion_rurales", layer: l_zpn_centros_poblacion_rurales },
+          { checkboxId: "sw_ciclovias", layer: l_zpn_ciclovias },
+          { checkboxId: "sw_corredor_urbano ", layer: l_zpn_corredor_urbano },
+          { checkboxId: "sw_diag_espacios_verdes", layer: l_zpn_diag_espacios_verdes },
+          { checkboxId: "sw_corredor_verde ", layer: l_zpn_corredor_verde },
+          { checkboxId: "sw_insta_especiales", layer: l_insta_especiales },
+          { checkboxId: "sw_linea_drenaje", layer: l_zpn_linea_drenaje },
+          { checkboxId: "sw_proyecto_colector", layer:l_zpn_proyecto_colector},
+          { checkboxId: "sw_zpn_anp", layer: l_zpn_anp },
+          { checkboxId: "sw_cuerpos_agua", layer: l_zpn_cuerpos_agua },
+          { checkboxId: "sw_conservacion_eco", layer: l_zpn_conservacion_eco },
+          { checkboxId: "sw_relleno_picachospol500", layer: l_zpn_relleno_picachospol500 },
+          { checkboxId: "sw_relleno_picachospol", layer: l_zpn_relleno_picachospol },
+          { checkboxId: "sw_relleno_picachos", layer: l_zpn_relleno_picachos },
+          { checkboxId: "sw_subestacion_electrica", layer: l_zpn_subestacion_electrica },
+          { checkboxId: "sw_planta_tratamiento", layer: l_zpn_planta_tratamiento },
+          { checkboxId: "sw_cerro_tepopote ", layer: l_zpn_cerro_tepopote },
+          { checkboxId: "sw_reserva_urbana", layer: l_zpn_reserva_urbana },
+          { checkboxId: "sw_ru_consolidacion", layer: l_zpn_ru_consolidacion },
+          { checkboxId: "sw_zonificacion_primaria", layer: l_zpn_zonificacion_primaria },
+          { checkboxId: "sw_area_desarrollo_controlado", layer: l_area_desarrollo_controlado },
+
+        ];
+
+        layers.forEach(function (layerObj) {
+          toggleLayer(layerObj.checkboxId, layerObj.layer);
+        });
+
+        // Llama a la función para apagar todas las capas cuando sea necesario
+        $("#turnOffAllLayersButton").click(function () {
+          turnOffAllLayers(layers);
+        });
+
+      });
+
+   </script>
+
+<script>
+
+/************* Leyendas para planes parciales *****************/
+  /* ------------- Conexiones  ------------------ */
+  var geoserver_url_wms_geom =
+    "https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?"; //Geoserver Geomatica
+  var geoserver_url_wfs_geom =
+    "https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/ows?"; //Geoserver Geomatica
+ /************* Centros Ubanos *****************/
+ var htmlLegend1 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Centros Urbanos Poligonos",
+        layer: wmsLayercentros_urbanos_pol,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_centros_urbanos_poligonos" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: false,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend1);
+
+  /************* Estructura Vial *****************/
+  var htmlLegend2 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Estructura Vial",
+        layer: wmsLayerestructura_vial,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_estructura_vial" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend2);
+
+  /************* zpn_e3_utilizacion_suelo *****************/
+  var htmlLegend3 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Utilizacion de suelo",
+        layer: wmsLayerZutilizacion_suelo,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_e3_utilizacion_suelo" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend3);
+
+  /************* Clasificación de Áreas  *****************/
+  var htmlLegend4 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Clasificacion de areas",
+        layer: wmsLayerclasificacion_areas,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_clasificacion_areas" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend4);
+
+  /************* Centros Urbanos Punto *****************/
+  var htmlLegend5 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Centros Urbanos Puntos",
+        layer: wmsLayercentros_urbanos_pto,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:ppdu2023_centros_urbanos_punto" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend5);
+
+  /************* Ciclovias *****************/
+  var htmlLegend6 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Ciclovias",
+        layer: wmsLayerzpn_ciclovias,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_ciclovias" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend6);
+
+  /************* Espacios Verdes *****************/
+  var htmlLegend7 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Espacios Verdes",
+        layer: wmsLayerdiag_espacios_verdes,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_diag_espacios_verdes" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend7);
+
+  /************* PROYECTO COLECTOR *****************/
+  var htmlLegend8 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Proyecto Colector",
+        layer: wmsLayerzpn_proyecto_colector,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_proyecto_colector" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend8);
+
+  /************* DESTINO DE RESERVAS URBANAS *****************/
+  var htmlLegend9 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Destino De Reservas Urbanas",
+        layer: wmsLayerzpn_reserva_urbana,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_reserva_urbana_municipal" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend9);
+
+  /************* DESTINO DE RESERVAS URBANAS *****************/
+  var htmlLegend10 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Reservas Urbanas Consolidación",
+        layer: wmsLayerzpn_ru_consolidacion,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_ru_consolidacion" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend10);
+
+  /************* ZONIFICACION PRIMARIA *****************/
+  var htmlLegend11 = L.control.htmllegend({
+    position: "bottomleft",
+    legends: [
+      {
+        name: "Zonificación Primaria",
+        layer: wmsLayerzpn_zonificacion_primaria,
+        elements: [
+          {
+            label: "<div></div>",
+            html:
+              '<img alt="legend" src="' +
+              geoserver_url_wms_geom +
+              'request=GetLegendGraphic&format=image/png&WIDTH=30&HEIGHT=30&layer=togeomatica:zpn_zonificacion_primaria" />',
+          },
+        ],
+      },
+    ],
+    defaultOpacity: 1.0,
+    collapseSimple: true,
+    detectStretched: true,
+    visibleIcon: "icon icon-eye",
+    disableVisibilityControls: false,
+    hiddenIcon: "icon icon-eye-slash",
+  });
+  map.addControl(htmlLegend11);
+
+</script>
+
+
+
+
+<script>
+  const items = document.querySelectorAll('.item');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove 'selected' class and reset the image source for all items
+      items.forEach(i => {
+        i.classList.remove('selected');
+        const img = i.querySelector('img');
+        img.src = img.dataset.originalSrc; // Reset to the original image
+      });
+      
+      // Add 'selected' class and change the image source for the clicked item
+      item.classList.add('selected');
+      const img = item.querySelector('img');
+      img.src = item.dataset.replacementSrc; // Change to the replacement image
+    });
+  });
+
+  // Store the original image sources
+  items.forEach(item => {
+    const img = item.querySelector('img');
+    img.dataset.originalSrc = img.src;
+  });
+</script>
+
+
+</body>
+
+</html>
