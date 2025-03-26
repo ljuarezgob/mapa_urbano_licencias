@@ -17,7 +17,6 @@ if (!$db_conn) {
 	exit;	
 }
 
-	
 ?>
 
 

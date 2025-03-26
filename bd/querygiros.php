@@ -1,6 +1,7 @@
 <?php
 // Conexión a la base de datos
-include 'conexion.php';
+include 'conexiongirospg.php';
+//  include 'conexion.php';
 
 // Obtener el término de búsqueda enviado por AJAX
 $buscar = $_GET["search"] ?? ''; // Si no hay parámetro, se deja vacío
@@ -12,11 +13,19 @@ $buscar = pg_escape_string($buscar);
 $result_array = [];
 
 // Consulta SQL con filtro dinámico
+
+// $query = "
+//     SELECT gid AS id, util_suelo AS text 
+//     FROM gestion_ordenamiento_ppdu_2023.zpn_e3_utilizacion_suelo 
+//     WHERE util_suelo ILIKE '%$buscar%' 
+//     LIMIT 50
+// ";
+
 $query = "
-    SELECT gid AS id, util_suelo AS text 
-    FROM gestion_ordenamiento_ppdu_2023.zpn_e3_utilizacion_suelo 
-    WHERE util_suelo ILIKE '%$buscar%' 
-    LIMIT 50
+    SELECT l.id_giro AS id, l.nombre_giro AS text
+    FROM licencias l
+    WHERE l.nombre_giro ILIKE  '%$buscar%'
+    LIMIT 50;
 ";
 
 // Ejecutar la consulta
