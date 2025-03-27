@@ -19,16 +19,19 @@
     <!-- Select2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+    <!-- // Inicializar tooltips -->
     <script>
-        // Inicializar tooltips
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 
-
-
     <style>
+        /* Removemos la cruz (x) que aparece en la barra de busqueda  */
+        .select2-selection__clear {
+            display: none !important;
+        }
+
         /* Ajustes generales de fuente */
         .container {
             font-size: 1.2rem;
@@ -169,21 +172,14 @@
 
 <body>
 
-
-
-
-
-
-
-
-
+    <!-- Este es el container del uso de suelo -->
     <div class="container mt-3">
         <!-- Espacio para la imagen -->
         <div class="mb-3 text-center">
             <img id="preview-image" src="./img/nomapa.png" alt="Vista previa" class="img-fluid rounded">
         </div>
 
-        <!-- Controles -->
+        <!-- Controles suma , resta e impresión -->
         <div id="controls" class="d-flex justify-content-center mt-4">
             <button class="btn btn-green-pastel rounded-circle mx-2" onclick="adjustBbox(-0.0001)" data-toggle="tooltip"
                 title="Acercar"
@@ -241,18 +237,24 @@
             <div class="mb-3">
                 <label for="select-registro2" class="form-label">Giro Comercial:</label>
                 <!-- Select con búsqueda -->
-                <select id="select-registro2" class="form-control" style="width: 100%;"></select>
-            </div>
+                <!-- <select  id="select-registro2" class="form-control" style="width: 100%;"></select> -->
+                <select  id="select-busqueda"  class="form-control" style="width: 100%;"></select>
 
+                
+            </div>
+           
+          
+
+            <!-- script para autorellenar los campos  -->
             <script>
                 $(document).ready(() => {
-                    $('#select-registro2').on('change', function () {
+                    $('#select-busqueda').on('change', function () {
 
                         let valor = $(this).val(); // Obtiene el valor seleccionado
                         if (!valor || valor === "") {
                             // console.log("No se ha seleccionado ningún valor");
-                            $('#impactogiro').text( "");
-                            $('#factibilidaduso').text( "");
+                            $('#impactogiro').val(""); //limpiar el campo
+                            $('#factibilidaduso').val("");
 
                             return;
                         }
@@ -260,13 +262,12 @@
                             url: 'bd/querygirosautocompletado.php',
                             type: 'GET',
                             dataType: 'json',
-                            data: { search: valor },
+                            data: { search: valor }, //Envia la variable al archivo php 
                             success: function (response) {
                                 // console.log("Respuesta del servidor:", response);
-                                // Aquí puedes hacer algo con la respuesta, como mostrarla en un span
-                                $('#impactogiro').text(response[0].impact_uso || "Sin datos");
-                                $('#factibilidaduso').text(response[0].fact_uso || "Sin datos");
-
+                                // Aquí puedes hacer algo con la respuesta, como mostrarla en un input
+                                $('#factibilidaduso').val(response[0].fact_uso || "");
+                                $('#impactogiro').val(response[0].impact_uso || "");
                             },
 
                         });
@@ -275,10 +276,12 @@
 
 
             </script>
+
+            <!-- script para hacer la busqueda -->
             <script>
                 $(document).ready(function () {
                     // Inicializar Select2 con búsqueda dinámica
-                    $('#select-registro2').select2({
+                    $('#select-busqueda').select2({
                         placeholder: 'Escribe para buscar...',
                         allowClear: true,
                         ajax: {
@@ -305,24 +308,25 @@
                 });
             </script>
 
-            <!-- *********************AQUI SE VA A DIGITAR LA INFORMACION -->
+            <!-- *********************AQUI SE VA A DIGITAR LA INFORMACION  Área del Predio (m²)-->
 
             <div class="mb-3 d-flex align-items-center">
-                <label for="areapredio" class="form-label me-2">Área del Predio (m²):</label>
-                <input type="text" class="form-control w-auto" id="areapredio" required>
+                <label for="areapredio" class="form-label me-2"></label>
+                <input placeholder="Área del Predio (m²)" type="text" maxlength="5" class="form-control w-auto"
+                    id="areapredio" required>
             </div>
-
 
             <!--<div class="mb-3 d-flex align-items-center" >
                 <label for="impactogiro" class="form-label me-2">Impacto de Giro:</label>
                 <input type="text" class="form-control w-auto" id="impactogiro" required disabled>
             </div>-->
 
-            <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION -->
+            <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION Impacto de Giro -->
 
             <div class="mb-3 d-flex align-items-center">
-                <label for="impactogiro" class="form-label me-2">Impacto de Giro:</label>
-                <span id="impactogiro" style="width: 70px; height: 35px;" class="form-control bg-light"></span>
+                <label for="impactogiro" class="form-label me-2"></label>
+                <input placeholder="Impacto de Giro:" id="impactogiro" style="height: 35px;"
+                    class="form-control bg-light" disabled />
             </div>
 
 
@@ -332,17 +336,15 @@
                 <input type="text" class="form-control w-auto" id="factibilidaduso" required disabled>
             </div> -->
 
-            <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION -->
+            <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION Factibilidad de Uso -->
             <div class="mb-3 d-flex align-items-center">
-                <label for="factibilidaduso" class="form-label me-2">Factibilidad de Uso:</label>
-                <span id="factibilidaduso"  class="form-control bg-light"></span>
+                <label for="factibilidaduso" class="form-label me-2"></label>
+                <input placeholder="Factibilidad de Uso:" id="factibilidaduso" class="form-control bg-light" disabled />
             </div>
 
 
             <!-- ********************* Boton para guardar informacion******************************* -->
-            <div>
-                <button> Guardar informacion </button>
-            </div>
+
 
             <div class="mb-3" style="display: none;">
                 <label for="claveusosuelo" class="form-label">Clave de Uso de Suelo</label>
