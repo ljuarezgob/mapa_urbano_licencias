@@ -1,0 +1,155 @@
+       
+ /* Removemos la cruz (x) que aparece en la barra de busqueda  */
+        /* .select2-selection__clear {
+            display: none !important;
+        } */
+         
+
+        .select2-selection__clear {
+            height: 90%;
+            border: none;
+            background-color: none;
+            z-index: 100;
+
+        }
+
+        .select2-selection__rendered {
+            border: none;
+            color: none;
+        }
+
+        /* Ajustes generales de fuente */
+        .container {
+            font-size: 1.2rem;
+            /* Aumentar el tamaño de la fuente para todo el formulario */
+        }
+
+        /* Ajusta el tamaño de las etiquetas */
+        .form-label {
+            font-size: 1.5rem;
+            /* Aumentar tamaño de las etiquetas */
+        }
+
+        .btn-default:hover,
+        .btn-default:focus,
+        .btn-default.focus,
+        .btn-default:active,
+        .btn-default.active,
+        .open>.dropdown-toggle.btn-default {
+            color: #333;
+            background-color: #e6e6e6;
+            border-color: #adadad;
+        }
+
+        /* Aumentar el tamaño de los inputs, select y textarea */
+        .form-control,
+        .form-select,
+        .form-textarea {
+            font-size: 1.0rem;
+            /* Aumentar tamaño de los campos de entrada */
+            /*  padding: 0.1rem;*/
+            /* Añadir más espacio dentro de los campos */
+        }
+
+        /* Aumentar el tamaño de los botones */
+        .btn {
+            font-size: 1.5rem;
+            /* Aumentar el tamaño de los botones */
+            border-color: #ccc;
+        }
+
+        /* Asegurar que los elementos del formulario usen el 100% del ancho disponible */
+        .form-control,
+        .form-select {
+            width: 100%;
+        }
+
+        /* Ajustar el tamaño de fuente dentro de los contenedores */
+        .form-control,
+        .form-select,
+        .form-textarea {
+            font-size: 1.0rem;
+            /* Asegura que el texto dentro de los inputs sea más grande */
+            /*line-height: 1.75;*/
+            /* Ajusta la altura de la línea dentro del contenedor */
+            /*padding: 0.15rem 1rem;*/
+            /*0.75rem 1rem; /* Añade espacio adicional dentro del contenedor */
+            height: auto;
+            /* Permite que la altura del contenedor se ajuste según el contenido */
+        }
+
+        /* Asegura que los contenedores de formularios no se desborden */
+        .container.mt-5 {
+            padding: 20px;
+        }
+
+        /* Estilos específicos para pantallas pequeñas (responsividad) */
+        @media (max-width: 768px) {
+            .container {
+                font-size: 1rem;
+                /* Reducir tamaño de texto en pantallas más pequeñas */
+            }
+
+            .form-label {
+                font-size: 1rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+            }
+        }
+
+        /* Estilo para la imagen */
+        #preview-image {
+            width: 100%;
+            /* La imagen ocupa todo el ancho del contenedor */
+            height: auto;
+            /* Mantiene la relación de aspecto original */
+            object-fit: contain;
+            /* La imagen se ajusta sin recortarse ni deformarse */
+            max-height: 100%;
+            /* Limita la altura para no exceder el contenedor */
+        }
+
+        /* Estilo para inputs deshabilitados, solo visualmente */
+        .deshabilitar {
+            pointer-events: none;
+            /* Desactiva la interacción */
+            opacity: 0.5;
+            /* Hace que el campo se vea deshabilitado */
+
+        }
+
+        .btn-green-pastel {
+            background-color: #77dd77;
+            /* Verde pastel */
+            color: white;
+            border: none;
+        }
+
+        .btn-green-pastel:hover {
+            background-color: #66cc66;
+            /* Un verde un poco más oscuro para el hover */
+        }
+
+        .btn-warning {
+            background-color: #f0ad4e;
+            /* Verde pastel */
+            color: white;
+            border: none;
+        }
+
+
+        .btn-warning:hover {
+            background-color: #c78f41;
+            ;
+            /* Efecto hover para el botón de impresión */
+        }
+
+
+        #entorno {
+            padding-top: 10px;
+            /* Ajusta el espacio superior dentro del div */
+            margin-top: 10px;
+            /* Opcional, para separar el div del contenido encima */
+        }

@@ -1,0 +1,35 @@
+/* Estilos para el contenedor con el título y el botón */
+.barra-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    background-color: #dddddd;
+}
+
+/* Estilos para el párrafo dentro del contenedor */
+.barra-titulo p {
+    margin: 0;
+    flex: 1;
+}
+
+/* Estilos para el botón */
+#btn-despegable-giro {
+    width: 30px;
+    height: 30px;
+    background: #6e8aa7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+#despegable-giro{
+    border: 1px solid #dddddd;
+    box-shadow: 1px 1px #aaaaaa;
+    padding: 3px;
+}
+.oculto {
+    display: none;
+}

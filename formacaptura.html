@@ -5,169 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta uso de suelo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- **************************************************** script -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Incluir SweetAlert -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Select2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> <!-- Select2 JS -->
+    <script src="./components/tooltips.js"></script><!-- Inicializar tooltips -->
 
-    <!-- // Inicializar tooltips -->
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
+    <!-- ****************************************************** styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <style>
-        /* Removemos la cruz (x) que aparece en la barra de busqueda  */
-        .select2-selection__clear {
-            display: none !important;
-        }
+    <link rel="stylesheet" href="./css/despegable.css">
+    <link rel="stylesheet" href="./css/styleGeneral.css">
 
-        /* Ajustes generales de fuente */
-        .container {
-            font-size: 1.2rem;
-            /* Aumentar el tamaño de la fuente para todo el formulario */
-        }
-
-        /* Ajusta el tamaño de las etiquetas */
-        .form-label {
-            font-size: 1.5rem;
-            /* Aumentar tamaño de las etiquetas */
-        }
-
-        .btn-default:hover,
-        .btn-default:focus,
-        .btn-default.focus,
-        .btn-default:active,
-        .btn-default.active,
-        .open>.dropdown-toggle.btn-default {
-            color: #333;
-            background-color: #e6e6e6;
-            border-color: #adadad;
-        }
-
-        /* Aumentar el tamaño de los inputs, select y textarea */
-        .form-control,
-        .form-select,
-        .form-textarea {
-            font-size: 1.0rem;
-            /* Aumentar tamaño de los campos de entrada */
-            /*  padding: 0.1rem;*/
-            /* Añadir más espacio dentro de los campos */
-        }
-
-        /* Aumentar el tamaño de los botones */
-        .btn {
-            font-size: 1.5rem;
-            /* Aumentar el tamaño de los botones */
-            border-color: #ccc;
-        }
-
-        /* Asegurar que los elementos del formulario usen el 100% del ancho disponible */
-        .form-control,
-        .form-select {
-            width: 100%;
-        }
-
-        /* Ajustar el tamaño de fuente dentro de los contenedores */
-        .form-control,
-        .form-select,
-        .form-textarea {
-            font-size: 1.0rem;
-            /* Asegura que el texto dentro de los inputs sea más grande */
-            /*line-height: 1.75;*/
-            /* Ajusta la altura de la línea dentro del contenedor */
-            /*padding: 0.15rem 1rem;*/
-            /*0.75rem 1rem; /* Añade espacio adicional dentro del contenedor */
-            height: auto;
-            /* Permite que la altura del contenedor se ajuste según el contenido */
-        }
-
-        /* Asegura que los contenedores de formularios no se desborden */
-        .container.mt-5 {
-            padding: 20px;
-        }
-
-        /* Estilos específicos para pantallas pequeñas (responsividad) */
-        @media (max-width: 768px) {
-            .container {
-                font-size: 1rem;
-                /* Reducir tamaño de texto en pantallas más pequeñas */
-            }
-
-            .form-label {
-                font-size: 1rem;
-            }
-
-            .btn {
-                font-size: 1rem;
-            }
-        }
-
-        /* Estilo para la imagen */
-        #preview-image {
-            width: 100%;
-            /* La imagen ocupa todo el ancho del contenedor */
-            height: auto;
-            /* Mantiene la relación de aspecto original */
-            object-fit: contain;
-            /* La imagen se ajusta sin recortarse ni deformarse */
-            max-height: 100%;
-            /* Limita la altura para no exceder el contenedor */
-        }
-
-        /* Estilo para inputs deshabilitados, solo visualmente */
-        .deshabilitar {
-            pointer-events: none;
-            /* Desactiva la interacción */
-            opacity: 0.5;
-            /* Hace que el campo se vea deshabilitado */
-
-        }
-
-        .btn-green-pastel {
-            background-color: #77dd77;
-            /* Verde pastel */
-            color: white;
-            border: none;
-        }
-
-        .btn-green-pastel:hover {
-            background-color: #66cc66;
-            /* Un verde un poco más oscuro para el hover */
-        }
-
-        .btn-warning {
-            background-color: #f0ad4e;
-            /* Verde pastel */
-            color: white;
-            border: none;
-        }
-
-
-        .btn-warning:hover {
-            background-color: #c78f41;
-            ;
-            /* Efecto hover para el botón de impresión */
-        }
-
-
-        #entorno {
-            padding-top: 10px;
-            /* Ajusta el espacio superior dentro del div */
-            margin-top: 10px;
-            /* Opcional, para separar el div del contenido encima */
-        }
-    </style>
 </head>
 
 <body>
@@ -198,9 +57,7 @@
             </button>
         </div>
 
-
-
-
+        <!-- Formulario -->
         <form id="formulario">
             <!-- Campos del formulario -->
             <div class="mb-3" style="display: none;">
@@ -234,116 +91,66 @@
 
             <!--  <div class="container mt-5">-->
             <!--<h4>Buscar Utilización de Suelo</h4>-->
-            <div class="mb-3">
-                <label for="select-registro2" class="form-label">Giro Comercial:</label>
-                <!-- Select con búsqueda -->
-                <!-- <select  id="select-registro2" class="form-control" style="width: 100%;"></select> -->
-                <select  id="select-busqueda"  class="form-control" style="width: 100%;"></select>
 
-                
-            </div>
-           
-          
+            <!-- Este div es para desplegar informacion del giro -->
+            <div>
 
-            <!-- script para autorellenar los campos  -->
-            <script>
-                $(document).ready(() => {
-                    $('#select-busqueda').on('change', function () {
+                <div class="barra-titulo">
+                    <p style="margin: 0; flex: 1;">Principal</p>
+                    <button type="button" id="btn-despegable-giro">▼</button>
+                </div>
 
-                        let valor = $(this).val(); // Obtiene el valor seleccionado
-                        if (!valor || valor === "") {
-                            // console.log("No se ha seleccionado ningún valor");
-                            $('#impactogiro').val(""); //limpiar el campo
-                            $('#factibilidaduso').val("");
-
-                            return;
-                        }
-                        $.ajax({
-                            url: 'bd/querygirosautocompletado.php',
-                            type: 'GET',
-                            dataType: 'json',
-                            data: { search: valor }, //Envia la variable al archivo php 
-                            success: function (response) {
-                                // console.log("Respuesta del servidor:", response);
-                                // Aquí puedes hacer algo con la respuesta, como mostrarla en un input
-                                $('#factibilidaduso').val(response[0].fact_uso || "");
-                                $('#impactogiro').val(response[0].impact_uso || "");
-                            },
-
-                        });
-                    });
-                });
+                <div id="despegable-giro" class="oculto">
 
 
-            </script>
+                    <!-- Select con búsqueda -->
+                    <div class="mb-3">
+                        <label for="select-registro2" class="form-label">Giro Comercial:</label>
+                        <select  id="select-busqueda" class="form-control" style="width: 100%;" required></select>
+                    </div>
 
-            <!-- script para hacer la busqueda -->
-            <script>
-                $(document).ready(function () {
-                    // Inicializar Select2 con búsqueda dinámica
-                    $('#select-busqueda').select2({
-                        placeholder: 'Escribe para buscar...',
-                        allowClear: true,
-                        ajax: {
-                            url: 'bd/querygiros.php', // Archivo PHP que devuelve los datos
-                            type: 'GET',
-                            dataType: 'json',
-                            delay: 250, // Retraso para optimizar búsquedas
-                            data: function (params) {
-                                return {
-                                    search: params.term // Enviar término de búsqueda al servidor
-                                };
-                            },
-                            processResults: function (data) {
-                                // Transformar los datos para Select2
-                                return {
-                                    results: data // Formato esperado: [{ id: ..., text: ... }]
-                                };
-                            },
-                            cache: true
-                        },
-                        minimumInputLength: 3, // Mínimo de caracteres antes de buscar
-                        dropdownParent: $('body') // Renderizar en el body
-                    });
-                });
-            </script>
+                    <!-- *********************AQUI SE VA A DIGITAR LA INFORMACION  Área del Predio (m²)-->
 
-            <!-- *********************AQUI SE VA A DIGITAR LA INFORMACION  Área del Predio (m²)-->
+                    <div class="mb-1 d-flex flex-column " style="display: flex; justify-content: start;">
+                        <div style=" padding: 2px; text-align: start;">
+                            <label for="areapredio" class="form-label">Área del Predio (m²)</label>
+                        </div>
+                        <input value="" type="text" minlength="5" class="form-control " id="areapredio" required>
+                    </div>
 
-            <div class="mb-3 d-flex align-items-center">
-                <label for="areapredio" class="form-label me-2"></label>
-                <input placeholder="Área del Predio (m²)" type="text" maxlength="5" class="form-control w-auto"
-                    id="areapredio" required>
-            </div>
 
-            <!--<div class="mb-3 d-flex align-items-center" >
-                <label for="impactogiro" class="form-label me-2">Impacto de Giro:</label>
-                <input type="text" class="form-control w-auto" id="impactogiro" required disabled>
-            </div>-->
+                    <!--<div class="mb-3 d-flex align-items-center" >
+                    <label for="impactogiro" class="form-label me-2">Impacto de Giro:</label>
+                    <input type="text" class="form-control w-auto" id="impactogiro" required disabled>
+                </div>-->
 
-            <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION Impacto de Giro -->
+                    <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION Impacto de Giro -->
 
-            <div class="mb-3 d-flex align-items-center">
-                <label for="impactogiro" class="form-label me-2"></label>
-                <input placeholder="Impacto de Giro:" id="impactogiro" style="height: 35px;"
-                    class="form-control bg-light" disabled />
-            </div>
+                    <div class="mb-1 d-flex flex-column " style="display: flex; justify-content: start;">
+                        <div style=" padding: 2px; text-align: start;">
+                            <label for="areapredio" class="form-label">Impacto de Giro</label>
+                        </div>
+                        <input id="impactogiro" style="height: 35px;" class="form-control bg-light" disabled />
+                    </div>
 
 
 
-            <!-- <div class="mb-3 d-flex align-items-center" >
+                    <!-- <div class="mb-3 d-flex align-items-center" >
                 <label for="factibilidaduso" class="form-label me-2">Factibilidad de Uso:</label>
                 <input type="text" class="form-control w-auto" id="factibilidaduso" required disabled>
             </div> -->
 
-            <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION Factibilidad de Uso -->
-            <div class="mb-3 d-flex align-items-center">
-                <label for="factibilidaduso" class="form-label me-2"></label>
-                <input placeholder="Factibilidad de Uso:" id="factibilidaduso" class="form-control bg-light" disabled />
+                    <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION Factibilidad de Uso -->
+                    <div class="mb-1 d-flex flex-column " style="display: flex; justify-content: start;">
+                        <div style=" padding: 2px; text-align: start;">
+                            <label for="factibilidaduso" class="form-label me-2"> Factibilidad de Uso </label>
+                        </div>
+                        <input id="factibilidaduso" class="form-control bg-light" disabled />
+                    </div>
+                </div>
+
             </div>
 
-
-            <!-- ********************* Boton para guardar informacion******************************* -->
 
 
             <div class="mb-3" style="display: none;">
@@ -389,12 +196,6 @@
                 <input type="number" class="form-control" id="ngid" required disabled>
             </div>
 
-
-
-
-
-
-
         </form>
     </div>
 
@@ -402,98 +203,17 @@
 
 
 
-    <script>
-        const formulario = document.getElementById("formulario");
-        const ngid = document.getElementById("ngid");
-        const previewImage = document.getElementById("preview-image");
-        const inputs = formulario.querySelectorAll(".form-control, .form-select, .form-textarea");
-        const btnAceptar = document.getElementById("btn-aceptar");
-        const btnActualizar = document.getElementById("btn-actualizar");
-        const btnEliminar = document.getElementById("btn-eliminar");
+    <!-- script para autorellenar los campos  -->
+    <script src="./components/autocompletarcampos.js">  </script>
 
-        let enModoEdicion = false;
-        let bbox = [];
-        let bboxValue = "";
-        let centerLong = 0;
-        let centerLat = 0;
+    <!-- script para hacer la busqueda -->
+    <script src="./components/busquedagiros.js"></script>
 
-        function toggleInputs(disabled) {
-            inputs.forEach(input => {
-                if (input.id !== "ngid") {
-                    input.disabled = disabled;
-                }
-            });
-        }
+    <!-- script para hacer la busqueda -->
+    <script src="./components/enviodatosparams.js"> </script>
 
-        function validarNGID() {
-            return ngid.value && ngid.value.trim() !== "";
-        }
-
-
-        function ImprimirFormulario2() {
-            // Obtener los valores de los inputs
-            const urlimagen = document.getElementById('urlimagen').value;
-            const planparcial = document.getElementById('planparcial').value;
-            const claveusosuelo = document.getElementById('claveusosuelo').value;
-            const usosuelo = document.getElementById('usosuelo').value;
-            const entorno = document.getElementById('entorno').value;
-            const restriccion = document.getElementById('restriccion').value;
-            const longitud = document.getElementById('longitud').value;
-            const latitud = document.getElementById('latitud').value;
-            const x = document.getElementById('x').value;
-            const y = document.getElementById('y').value;
-            const vbbox = document.getElementById('vbbox').value;
-            const ngid = document.getElementById('ngid').value;
-
-            // Crear la URL con los datos
-            const url = new URL('http://localhost/mapa_urbano_licencias/pdfimpresion.html', window.location.origin);
-            const params = new URLSearchParams({
-                planparcial,
-                claveusosuelo,
-                usosuelo,
-                longitud,
-                latitud,
-                x,
-                y,
-                urlimagen
-                //entorno
-
-            });
-
-            // Redirigir a consulta.html con los parámetros
-            window.location.href = `${url}?${params.toString()}`;
-        }
-
-
-        function ImprimirFormulario() {
-            // Obtener los valores de los inputs
-            const urlimagen = document.getElementById('urlimagen').value;
-            const planparcial = document.getElementById('planparcial').value;
-            const claveusosuelo = document.getElementById('claveusosuelo').value;
-            const usosuelo = document.getElementById('usosuelo').value;
-            const longitud = document.getElementById('longitud').value;
-            const latitud = document.getElementById('latitud').value;
-            const x = document.getElementById('x').value;
-            const y = document.getElementById('y').value;
-            //const entorno = document.getElementById('entorno').value;  // Aquí debería ser 'entorno' y no 'planparcial'
-
-            // Crear los parámetros para enviar
-            const params = new URLSearchParams({
-                planparcial,
-                claveusosuelo,
-                usosuelo,
-                longitud,
-                latitud,
-                x,
-                y,
-                urlimagen
-                //entorno
-            });
-
-            // Abrir pdfimpresion.html en una nueva pestaña y pasar los parámetros
-            const url = `pdfimpresion.html?${params.toString()}`;
-            window.open(url, '_blank'); // '_blank' abre en una nueva pestaña
-        }
+    <!-- script para abiri y cerrar el giro  -->
+    <script src="./components/btnDespegable.js"></script>
 
 
 
@@ -501,131 +221,6 @@
 
 
 
-
-        function cancelarFormulario() {
-            formulario.reset();
-            toggleInputs(true);
-            previewImage.src = "./img/nomapa.png";
-            btnAceptar.disabled = true;
-            btnActualizar.disabled = false;
-            enModoEdicion = false;
-        }
-
-        function deleteForm() {
-            Swal.fire({
-                title: '¿Estás seguro?',
-                text: "¿Deseas eliminar los datos?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Sí, eliminar',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    formulario.reset();
-                    toggleInputs(true);
-                    previewImage.src = "./img/nomapa.png";
-                    btnAceptar.disabled = true;
-                    btnActualizar.disabled = false;
-                    enModoEdicion = false;
-                    Swal.fire('Eliminado', 'Los datos han sido eliminados', 'success');
-                }
-            });
-        }
-
-        btnActualizar.addEventListener("click", () => {
-            if (!validarNGID()) {
-                Swal.fire('Error', 'NGID es obligatorio.', 'error');
-                return;
-            }
-            enModoEdicion = true;
-            toggleInputs(false);
-            btnActualizar.disabled = true;
-            btnAceptar.disabled = false;
-        });
-
-        btnEliminar.addEventListener("click", deleteForm);
-
-        window.onload = function () {
-            bboxValue = document.getElementById("vbbox").value;
-
-            console.log(bboxValue);
-
-
-            if (bboxValue) {
-                bbox = bboxValue.split(',').map(Number); // Convertir a números
-            }
-
-            centerLong = parseFloat(document.getElementById("longitud").value);
-            centerLat = parseFloat(document.getElementById("latitud").value);
-
-            if (isNaN(centerLong) || isNaN(centerLat)) {
-                console.error("Las coordenadas de longitud o latitud no son válidas.");
-                return;
-            }
-        }
-
-        function adjustBbox(delta) {
-            // Extraer las coordenadas actuales
-            centerLong = parseFloat(document.getElementById("longitud").value);
-            centerLat = parseFloat(document.getElementById("latitud").value);
-            bboxValue = document.getElementById("vbbox").value;
-            bboxValue = bboxValue.replace(/\[|\]/g, '').trim();
-            bbox = bboxValue.split(',').map(coord => parseFloat(coord.trim()));
-
-            const bboxWidth = bbox[2] - bbox[0];
-            const bboxHeight = bbox[3] - bbox[1];
-            const newWidth = bboxWidth + delta;
-            const newHeight = bboxHeight + delta;
-
-            bbox[0] = centerLong - newWidth / 2; // minx
-            bbox[1] = centerLat - newHeight / 2; // miny
-            bbox[2] = centerLong + newWidth / 2; // maxx
-            bbox[3] = centerLat + newHeight / 2; // maxy
-
-            console.log(bbox);
-
-            updateMap(); // Actualizar la imagen después del ajuste
-        }
-
-        function updateMap() {
-            const bboxStr = bbox.map(coord => coord.toFixed(10)).join(',');
-            const urlx = `https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?service=WMS&version=1.1.0&request=GetMap&layers=geomatica%3AOSM-WMS,geomatica%3Appdu_zonificacion_manzana,geomatica%3APredios_PPDU,geomatica%3Appdu_zonificacion,geomatica%3Aubicacion&viewparams=longitud%3A${centerLong};latitud%3A${centerLat}&bbox=${bboxStr}&width=300&height=300&srs=EPSG%3A4326&format=image%2Fpng`;
-
-
-            let url2 = `https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?service=WMS&version=1.1.0&request=GetMap&layers=
-                geomatica%3Azpn_centros_urbanos_punto,
-                geomatica%3Aarea_desarrollo_controlado,
-                geomatica%3Azpn_centros_urbanos_punto,
-                geomatica%3Azpn_e3_utilizacion_suelo,
-                geomatica%3Azpn_e3_utilizacion_suelo_etiquetas,
-                geomatica%3Azpn_arroyo_vehicular,
-                geomatica%3Azpn_estructura_vial,
-                geomatica%3Aarea_desarrollo_controlado,
-                geomatica%3Azpn_ppe,
-                geomatica%3Azpn_predios,
-                geomatica%3Aubicacion&viewparams=longitud%3A${centerLong};latitud%3A${centerLat}&bbox=${bboxStr}&width=300&height=300&srs=EPSG%3A4326&format=image%2Fpng`;
-
-
-
-
-
-            // Actualizar la imagen
-            previewImage.src = url2;
-            document.getElementById("urlimagen").value = url2;
-            document.getElementById("vbbox").value = bboxStr;
-        }
-
-
-
-
-
-
-
-
-
-
-
-    </script>
 
 
 </body>

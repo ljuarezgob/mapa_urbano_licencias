@@ -125,11 +125,11 @@
             
             <div class="pegadito">
                 <label>Giro Solicitado:</label>
-                <span class="giro-solicitado">XXXX</span>
+                <span class="giro-solicitado"  id="girosolicitado">XXXX</span>
             </div>
             <br/>
             <div class="row">
-                <label>Superficie M2:</label> XXX.XX
+                <label>Superficie M2:<span style="margin-left: 6px; font-weight: normal;" id="superficiem2-result"></span> </label>
                 <label>Tipo de Trámite:</label> XXXX
                 <label>Lic. Vigente:</label> XXXX
             </div>
@@ -253,8 +253,8 @@
                     <!--<label>Uso de Suelo: </label>XXX<br/>-->
                     <label>Plan Parcial:</label> <span id="planparcial-result"></span><br/>
                     <label>Uso de Suelo: </label><span id="usosuelo-result"></span><br/>
-                    <label>Impacto de Giro: </label>XXXX<br/>
-                    <label>Factibilidad de Uso: </label>XXXX
+                    <label>Impacto de Giro: </label><span id="impactogiro-result"></span><br/>
+                    <label>Factibilidad de Uso: </label><span id="factibilidaduso-result"></span><br/>
                 </div>
                 <div class="note">
                     Bajo protesta de decir verdad, manifiesto que los datos otorgados para la obtención de la presente consulta de uso de suelo son correctos.
@@ -306,11 +306,23 @@
     const urlParams = new URLSearchParams(window.location.search);
     var longitud = urlParams.get('longitud');
     var latitud  = urlParams.get('latitud');
+    var impactogiro = urlParams.get('impactogiro');
+    var factibilidaduso = urlParams.get('factibilidaduso');
+    var girosolicitado = urlParams.get('selectbusqueda');
+    let areaPredio = urlParams.get('areapredio');
+
+
     var x = urlParams.get('x');
     var y  = urlParams.get('y');
     var urlqr = 'http://10.10.23.178/geomatica/pruebas/mapa_urbano_licencias/?latitud='+latitud+'&longitud='+longitud;
 
     console.log("URL del QR:", urlqr);
+    console.log(impactogiro);
+    console.log(factibilidaduso);
+    console.log(girosolicitado);
+    console.log(areaPredio);
+
+    
 
 // Función para generar el código QR
 function generarQRCode(url) {
@@ -365,6 +377,18 @@ generarQRCode(urlqr)
     document.getElementById('image-result').src = urlParams.get('urlimagen');
     //document.getElementById('image-result2').src = urlParams.get('urlimagen');
    // document.getElementById('image-result2').src = imagendelqr;
+    //document.getElementById('image-result2').src = urlParams.get('urlimagen2');
+    //document.getElementById('image-result2').src = imagendelqr;
+    //document.getElementById('image-result2').src = urlParams.get('urlimagen2');
+
+
+    // Asignar el valor de impacto de giro
+    document.getElementById('impactogiro-result').textContent = impactogiro;
+    document.getElementById('factibilidaduso-result').textContent = factibilidaduso;
+    document.getElementById('girosolicitado').textContent = girosolicitado;
+    document.getElementById('superficiem2-result').textContent = areaPredio;
+
+
 
 
 
