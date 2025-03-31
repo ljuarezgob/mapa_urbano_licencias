@@ -1,11 +1,7 @@
-document.getElementById("btn-despegable-giro").addEventListener("click", function () {
-    const div = document.getElementById("despegable-giro"); 
-
-     if (div.classList.contains("visible")) {
-        div.classList.remove("visible");
-        div.classList.add("oculto");
-    } else {
-        div.classList.remove("oculto");
-        div.classList.add("visible");
-    }
+document.querySelectorAll(".btn-despegable-giro").forEach((boton) => {
+    boton.addEventListener("click", function () {
+        const contenedor = this.closest(".contenedor");
+        const div = contenedor.querySelector(".despegable-giro");
+        div.classList.toggle("oculto");
+    });
 });

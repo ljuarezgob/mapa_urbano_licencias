@@ -5,9 +5,9 @@ const formulario = document.getElementById("formulario");
         const btnAceptar = document.getElementById("btn-aceptar");
         const btnActualizar = document.getElementById("btn-actualizar");
         const btnEliminar = document.getElementById("btn-eliminar");
-        const selectbusqueda = document.getElementById("select-busqueda");
-        const areapredio = document.getElementById("areapredio")
-
+        const selectbusqueda = document.getElementsByClassName("select-busqueda");
+        const areapredio = document.getElementsByClassName("areapredio")
+        console.log(areapredio, "areaaaaaaaaaaaaa")
         let enModoEdicion = false;
         let bbox = [];
         let bboxValue = "";
@@ -74,10 +74,12 @@ const formulario = document.getElementById("formulario");
             const latitud = document.getElementById('latitud').value;
             const x = document.getElementById('x').value;
             const y = document.getElementById('y').value;
-            const impactogiro = document.getElementById('impactogiro').value;
-            const factibilidaduso = document.getElementById('factibilidaduso').value;
-            const selectbusqueda = document.getElementById('select2-select-busqueda-container')?.title.trim(); ; //el id  original está oculto de la libreria select2
-            const areapredio = document.getElementById('areapredio').value;
+            const impactogiro = document.querySelector('.impactogiro')?.value;
+            const factibilidaduso = document.querySelector('.factibilidaduso')?.value;
+            const selectbusqueda = document.querySelector('.select2-selection__rendered')?.getAttribute("title") //el id  original está oculto de la libreria select2
+            console.log(selectbusqueda, " valor del selectbusqueda")
+            const areapredio = document.querySelector('.areapredio')?.value //el id  original está oculto de la libreria select2;
+            console.log(areapredio, "area predio")
             //const entorno = document.getElementById('entorno').value;  // Aquí debería ser 'entorno' y no 'planparcial'
 
             //validaciones de los datos que entran al pdf

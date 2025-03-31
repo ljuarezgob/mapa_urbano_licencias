@@ -15,17 +15,18 @@
 }
 
 /* Estilos para el botón */
-#btn-despegable-giro {
+.btn-despegable-giro {
     width: 30px;
     height: 30px;
-    background: #6e8aa7;
+    background: #546679;
     color: white;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
 
 }
-#despegable-giro{
+
+.despegable-giro{
     border: 1px solid #dddddd;
     box-shadow: 1px 1px #aaaaaa;
     padding: 3px;

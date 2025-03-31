@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    $('#select-busqueda').select2();   // Asegura que Select2 esté activado
+    $('.select-busqueda').select2();   // Asegura que Select2 esté activado
 
     // Inicializar Select2 con búsqueda dinámica
-    $('#select-busqueda').select2({
+    $('.select-busqueda').select2({
         placeholder: 'Escribe para buscar...',
         allowClear: true,
         ajax: {
