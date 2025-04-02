@@ -2,7 +2,7 @@
 // Conexión a la base de datos
 include 'conexiongirospg.php';
 //  include 'conexion.php';
-
+header("Content-Type: application/json");
 // Obtener el término de búsqueda enviado por AJAX
 $buscar = $_GET["search"] ?? ''; // Si no hay parámetro, se deja vacío
 
@@ -36,10 +36,6 @@ while ($row = pg_fetch_assoc($result)) {
 
 // Devolver los resultados en formato JSON
 echo json_encode($result_array);
-
-
-
-
 
 
 ?>

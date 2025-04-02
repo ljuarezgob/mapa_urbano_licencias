@@ -88,13 +88,14 @@
             <!--<textarea class="form-control" id="entorno" rows="1" required disabled></textarea>-->
             <div id="entorno" class="form-control mt-2 mb-2"></div>
 
-
-            <!-- Este div es para desplegar informacion del giro -->
+            <p>Se hacen por modulos</p>
+            <!-- Este div es para desplegar informacion del giro1 -->
             <div class="contenedor">
 
-                <div class="barra-titulo">
+                <div class="barra-titulo primario">
                     <p style="margin: 0; flex: 1;">Principal</p>
-                    <button type="button" class="btn-despegable-giro">▼</button>
+                    <button
+                     type="button" class="btn-despegable-giro">▼</button>
                 </div>
 
                 <div class="despegable-giro oculto">
@@ -147,11 +148,67 @@
                 </div>
 
             </div>
-            <!-- Este div es para desplegar informacion del giro -->
+            <!-- Este div es para desplegar informacion del giro2 -->
         
+            <div class="contenedor"  >
+
+                <div class="barra-titulo secundario">
+                    <p style="margin: 0; flex: 1;">Secundario</p>
+                    <button  type="button" class="btn-despegable-giro">▼</button>
+                </div>
+
+                <div class="despegable-giro oculto">
+
+
+                    <!-- Select con búsqueda -->
+                    <div class="mb-3">
+                        <label for="select-registro2" class="form-label">Giro Comercial:</label>
+                        <select  class="select-busquedaSec" class="form-control" style="width: 100%;" required></select>
+                    </div>
+
+                    <!-- *********************AQUI SE VA A DIGITAR LA INFORMACION  Área del Predio (m²)-->
+
+                    <div class="mb-1 d-flex flex-column " style="display: flex; justify-content: start;">
+                        <div style=" padding: 2px; text-align: start;">
+                            <label for="areapredio" class="form-label">Área del Predio (m²)</label>
+                        </div>
+                        <input value="" type="text" maxlength="5"  class="form-control areapredio2" required>
+                    </div>
+
+
+                    <!--<div class="mb-3 d-flex align-items-center" >
+                    <label for="impactogiro" class="form-label me-2">Impacto de Giro:</label>
+                    <input type="text" class="form-control w-auto" id="impactogiro" required disabled>
+                </div>-->
+
+                    <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION Impacto de Giro -->
+
+                    <div class="mb-1 d-flex flex-column " style="display: flex; justify-content: start;">
+                        <div style=" padding: 2px; text-align: start;">
+                            <label for="areapredio" class="form-label">Impacto de Giro</label>
+                        </div>
+                        <input style="height: 35px;" class="form-control impactogiro2 bg-light" disabled />
+                    </div>
 
 
 
+                    <!-- <div class="mb-3 d-flex align-items-center" >
+                        <label for="factibilidaduso" class="form-label me-2">Factibilidad de Uso:</label>
+                        <input type="text" class="form-control w-auto" id="factibilidaduso" required disabled>
+                    </div> -->
+
+                    <!-- *********************AQUI SE VA A AUTOCOMPLETAR LA INFORMACION Factibilidad de Uso -->
+                    <div class="mb-1 d-flex flex-column " style="display: flex; justify-content: start;">
+                        <div style=" padding: 2px; text-align: start;">
+                            <label for="factibilidaduso2" class="form-label me-2"> Factibilidad de Uso </label>
+                        </div>
+                        <input  class="form-control factibilidaduso2 bg-light" disabled />
+                    </div>
+                </div>
+
+            </div>
+
+            
 
             <div class="mb-3" style="display: none;">
                 <label for="claveusosuelo" class="form-label">Clave de Uso de Suelo</label>

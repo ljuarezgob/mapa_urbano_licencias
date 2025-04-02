@@ -7,7 +7,8 @@ const formulario = document.getElementById("formulario");
         const btnEliminar = document.getElementById("btn-eliminar");
         const selectbusqueda = document.getElementsByClassName("select-busqueda");
         const areapredio = document.getElementsByClassName("areapredio")
-        console.log(areapredio, "areaaaaaaaaaaaaa")
+
+
         let enModoEdicion = false;
         let bbox = [];
         let bboxValue = "";
@@ -64,7 +65,9 @@ const formulario = document.getElementById("formulario");
         }
 
 
+
         function ImprimirFormulario() {
+
             // Obtener los valores de los inputs
             const urlimagen = document.getElementById('urlimagen').value;
             const planparcial = document.getElementById('planparcial').value;
@@ -76,12 +79,10 @@ const formulario = document.getElementById("formulario");
             const y = document.getElementById('y').value;
             const impactogiro = document.querySelector('.impactogiro')?.value;
             const factibilidaduso = document.querySelector('.factibilidaduso')?.value;
-            const selectbusqueda = document.querySelector('.select2-selection__rendered')?.getAttribute("title") //el id  original está oculto de la libreria select2
-            console.log(selectbusqueda, " valor del selectbusqueda")
-            const areapredio = document.querySelector('.areapredio')?.value //el id  original está oculto de la libreria select2;
-            console.log(areapredio, "area predio")
+            const selectbusqueda = document.querySelector('.select2-selection__rendered')?.getAttribute("title"); //el id  original está oculto de la libreria select2
+            const areapredio = document.querySelector('.areapredio')?.value;
             //const entorno = document.getElementById('entorno').value;  // Aquí debería ser 'entorno' y no 'planparcial'
-
+            
             //validaciones de los datos que entran al pdf
          
             if (!selectbusqueda || selectbusqueda === "Escribe para buscar...") {
@@ -112,11 +113,15 @@ const formulario = document.getElementById("formulario");
 
                 //entorno
             });
+       
+            //limpiar el formulario
+            // formulario.reset();
 
             // Abrir pdfimpresion.html en una nueva pestaña y pasar los parámetros
             const url = `pdfimpresion.html?${params.toString()}`;
             window.open(url, '_blank'); // '_blank' abre en una nueva pestaña
         }
+
 
 
 
