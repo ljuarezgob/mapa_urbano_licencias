@@ -64,7 +64,25 @@ const formulario = document.getElementById("formulario");
             window.location.href = `${url}?${params.toString()}`;
         }
 
+        function paramsGiro1(){
+            const impactogiro = document.querySelector('.impactogiro')?.value;
+            const factibilidaduso = document.querySelector('.factibilidaduso')?.value;
+            const selectbusqueda = document.querySelector('.select2-selection__rendered')?.getAttribute("title"); //el id  original está oculto de la libreria select2
+            const areapredio = document.querySelector('.areapredio')?.value;
+            //const entorno = document.getElementById('entorno').value;  // Aquí debería ser 'entorno' y no 'planparcial'
+            
+            //validaciones de los datos que entran al pdf
+         
+            if (!selectbusqueda || selectbusqueda === "Escribe para buscar...") {
+                alert("Seleccionar un giro en la barra de búsqueda.");
+                return;
+            }
 
+              if(!areapredio){
+                alert("El campo area predio es obligatorio");
+                return;
+            }
+        }
 
         function ImprimirFormulario() {
 
