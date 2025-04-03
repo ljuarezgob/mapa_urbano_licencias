@@ -15,24 +15,18 @@ WHERE l.id_giro = $trans";
 
 $result_nombre = pg_query($db_conn, $nombre_giro_query);
 
-$row_nombre = pg_fetch_assoc($result_nombre); //
+
+
+$row_nombre = pg_fetch_assoc($result_nombre);
 $nombre_giro = pg_escape_string($row_nombre['nombre']);
 
-
-// echo "Se muestra el nombre     ".$nombre_giro;
-
-$capt_first_name = explode(" ", $nombre_giro); // extraigo la prmera palabra hasta el espacio
-$pos_first_name  = $capt_first_name[0];
-
 $query = "
-    SELECT  l.id_giro AS id,  l.nombre_giro AS text 
-        FROM licencias l
-        INNER   JOIN giro_secu gs 
-        ON gs.id_giro_sec = l.id_giro
-        WHERE l.nombre_giro <>   '$nombre_giro'
-        AND l.nombre_giro LIKE '%$pos_first_name%'
-        ORDER BY l.id_giro ASC;
-";
+    SELECT  gs.id_giro_sec AS id,  gs.nombre_giro_sec AS nombre_subgiro
+        FROM giro_secu gs 
+        INNER JOIN licencias l 
+        ON l.id_giro = gs.id_fk_licencias
+        WHERE l.nombre_giro =  '$nombre_giro';
+    ";
 
 // echo $query; 
 $result = pg_query($db_conn, $query);
@@ -47,7 +41,7 @@ if (!$result) {
 while($row = pg_fetch_assoc($result)){
     $result_array[] = [
         "id" => $row['id'],
-        "text" => $row['text']
+        "sub_giro" => $row['nombre_subgiro']
     ];
 }
 
