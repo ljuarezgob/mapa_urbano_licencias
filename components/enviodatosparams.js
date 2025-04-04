@@ -69,26 +69,31 @@ const formulario = document.getElementById("formulario");
             window.location.href = `${url}?${params.toString()}`;
         }
 
-        function paramsGiro1(){
-            const impactogiro = document.querySelector('.impactogiro')?.value;
-            const factibilidaduso = document.querySelector('.factibilidaduso')?.value;
-            const selectbusqueda = document.querySelector('.select2-selection__rendered')?.getAttribute("title"); //el id  original está oculto de la libreria select2
-            const areapredio = document.querySelector('.areapredio')?.value;
-            //const entorno = document.getElementById('entorno').value;  // Aquí debería ser 'entorno' y no 'planparcial'
+        
+        function contenedorSec() {
+            let miCheckbox = document.getElementById('myCheck');
+            let miDiv = document.getElementById("contenedor-giro-sec"); //llamamos al contenedor del segundo giro para que se muestre
             
-            //validaciones de los datos que entran al pdf
-         
-            if (!selectbusqueda || selectbusqueda === "Escribe para buscar...") {
-                alert("Seleccionar un giro en la barra de búsqueda.");
+        
+            if (!miCheckbox || !miDiv) {
+                console.error("Checkbox o div no encontrados.");
                 return;
             }
-
-              if(!areapredio){
-                alert("El campo area predio es obligatorio");
-                return;
-            }
+        
+            miDiv.style.display = "none"; // Oculta el div al inicio
+        
+            miCheckbox.addEventListener('change', function () {
+                if (miCheckbox.checked) {
+                    console.log("Checkbox marcado:", miCheckbox.checked);
+                    miDiv.style.display = "block"; // Muestra el div
+        
+        
+                } else {
+                    console.log("Checkbox desmarcado:", miCheckbox.checked);
+                    miDiv.style.display = "none"; // Oculta el div
+                }
+            });
         }
-
         function ImprimirFormulario() {
 
             // Obtener los valores de los inputs
@@ -151,14 +156,6 @@ const formulario = document.getElementById("formulario");
             const url = `pdfimpresion.html?${params.toString()}`;
             window.open(url, '_blank'); // '_blank' abre en una nueva pestaña
         }
-
-
-
-
-
-
-
-
 
         function cancelarFormulario() {
             formulario.reset();

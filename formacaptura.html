@@ -26,6 +26,8 @@
 
     <link rel="stylesheet" href="./css/despegable.css">
     <link rel="stylesheet" href="./css/styleGeneral.css">
+    <link rel="stylesheet" href="./css/slider.css">
+
 
 </head>
 
@@ -58,10 +60,9 @@
         </div>
 
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="myCheck" onclick="contenedorSec()">
             <span class="slider"></span>
-          </label>
-          
+        </label>
 
         <!-- Formulario -->
         <form id="formulario">
@@ -159,7 +160,7 @@
             
             <!-- Este div es para desplegar informacion del giro2 -->
         
-            <div class="contenedor"  >
+            <div class="contenedor"  id="contenedor-giro-sec" style="display: none;" >
 
                 <div class="barra-titulo secundario">
                     <p style="margin: 0; flex: 1;">Secundario</p>
