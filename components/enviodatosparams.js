@@ -95,6 +95,9 @@ const formulario = document.getElementById("formulario");
             });
         }
         function ImprimirFormulario() {
+            //checkbox
+            const miCheckbox = document.getElementById('myCheck');
+            const checkboxEstado = miCheckbox.checked ? true : false; // "1" si está marcado, "0" si no
 
             // Obtener los valores de los inputs
             const urlimagen = document.getElementById('urlimagen').value;
@@ -145,6 +148,7 @@ const formulario = document.getElementById("formulario");
                 selectbusqueda2,
                 impactogiro2,
                 factibilidaduso2,
+                checkboxEstado
 
                 //entorno
             });
