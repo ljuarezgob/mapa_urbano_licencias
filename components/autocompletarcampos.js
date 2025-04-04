@@ -5,8 +5,6 @@ $(document).ready(() => {
     // y se autocompleten los campos respectivos
     function handleSelectChange(selectClass, impactoClass, factibilidadClass) {
         let valor = $(selectClass).val();
-        console.log(valor, " valor de la variable");
-
         if (!valor || valor === "") {
             $(impactoClass).val(""); // Limpiar campo
             $(factibilidadClass).val("");
@@ -19,20 +17,18 @@ $(document).ready(() => {
             dataType: 'json',
             data: { search: valor },
             success: function (response) {
-                console.log("Respuesta del servidor:", response);
-                console.log("Respuesta del servidor:", response[0]?.fact_uso);
-                console.log("Respuesta del servidor:", response[0]?.impact_uso);
+                // console.log("Respuesta del servidor:", response);
+                // console.log("Respuesta del servidor:", response[0]?.fact_uso);
+                // console.log("Respuesta del servidor:", response[0]?.impact_uso);
                 $(factibilidadClass).val(response[0]?.fact_uso || "");
                 $(impactoClass).val(response[0]?.impact_uso || "");
             }
         });
     }
 
-    //Envia la informacion a los giros secundarios
+    //Envia la informacion a los
     function handleSelectChange2(selectClass, impactoClass, factibilidadClass) {
         let valor = $(selectClass).val();
-        console.log(valor, " valor de la variable");
-
         if (!valor || valor === "") {
             $(impactoClass).val(""); // Limpiar campo
             $(factibilidadClass).val("");
@@ -45,9 +41,9 @@ $(document).ready(() => {
             dataType: 'json',
             data: { search: valor },
             success: function (response) {
-                console.log("Respuesta del servidor:", response);
-                console.log("Respuesta del servidor:", response[0]?.fact_uso);
-                console.log("Respuesta del servidor:", response[0]?.impact_uso);
+                // console.log("Respuesta del servidor:", response);
+                // console.log("Respuesta del servidor:", response[0]?.fact_uso);
+                // console.log("Respuesta del servidor:", response[0]?.impact_uso);
                 $(factibilidadClass).val(response[0]?.fact_uso || "");
                 $(impactoClass).val(response[0]?.impact_uso || "");
             }

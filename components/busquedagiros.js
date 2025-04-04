@@ -41,11 +41,10 @@ $(document).ready(function () {
                 $selectSec.empty().trigger('change'); // Limpiar opciones previas sin reescribir el HTML
 
                 // Agregar nuevas opciones al select
-                $selectSec.append(new Option('', '', true, true)); // Marcado como seleccionado
+                $selectSec.append(new Option('Selecciona un subgiro......', '', true, true)); // Marcado como seleccionado
 
                 $.each(data, function (index, item) {
-                    console.log(item, "item from second select");
-                    let newOption = new Option(item.sub_giro, item.id, false, false);
+                    let newOption = new Option(item.sub_giro, item.sub_giro, false, false);
                     $selectSec.append(newOption);
                 });
 

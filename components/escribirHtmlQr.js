@@ -8,14 +8,19 @@
  let areaPredio = urlParams.get('areapredio');
 
 
+ let giroSolicitado2 =  urlParams.get('selectbusqueda2');
+ let areaPredio2 = urlParams.get('areapredio2');
+ var impactogiro2 = urlParams.get('impactogiro2');
+ var factibilidaduso2 = urlParams.get('factibilidaduso2');
+
  var x = urlParams.get('x');
  var y  = urlParams.get('y');
  var urlqr = 'http://10.10.23.178/geomatica/pruebas/mapa_urbano_licencias/?latitud='+latitud+'&longitud='+longitud;
 
- console.log(girosolicitado);
- console.log(areaPredio);
- console.log(impactogiro);
- console.log(factibilidaduso);
+ console.log(giroSolicitado2);
+ console.log(areaPredio2);
+ console.log(impactogiro2);
+ console.log(factibilidaduso2);
  console.log("URL del QR:", urlqr);
 
  
@@ -80,3 +85,7 @@ generarQRCode(urlqr)
 
 
 
+ document.getElementById('girosolicitado2').textContent = giroSolicitado2;
+ document.getElementById('superficiem2-result2').textContent = areaPredio; //se toma el m2 del mismo preio
+ document.getElementById('impactogiro-result2').textContent = impactogiro2;
+ document.getElementById('factibilidaduso-result2').textContent = factibilidaduso2;

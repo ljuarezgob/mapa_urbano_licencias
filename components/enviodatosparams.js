@@ -8,7 +8,12 @@ const formulario = document.getElementById("formulario");
         const selectbusqueda = document.getElementsByClassName("select-busqueda");
         const areapredio = document.getElementsByClassName("areapredio")
 
+        const selectbusqueda2 = document.getElementsByClassName("select-busqiedaSec");
 
+
+       //const entorno = document.getElementById('entorno').value;  // Aquí debería ser 'entorno' y no 'planparcial'
+
+    
         let enModoEdicion = false;
         let bbox = [];
         let bboxValue = "";
@@ -100,7 +105,11 @@ const formulario = document.getElementById("formulario");
             const selectbusqueda = document.querySelector('.select2-selection__rendered')?.getAttribute("title"); //el id  original está oculto de la libreria select2
             const areapredio = document.querySelector('.areapredio')?.value;
             //const entorno = document.getElementById('entorno').value;  // Aquí debería ser 'entorno' y no 'planparcial'
-            
+                
+            const selectbusqueda2 = document.querySelector('.select-busquedaSec')?.value; //el id  original está oculto de la libreria select2
+            const areapredio2 = document.querySelector('.areapredio2')?.value;
+            const impactogiro2 = document.querySelector('.impactogiro2')?.value;
+            const factibilidaduso2 = document.querySelector('.factibilidaduso2')?.value;
             //validaciones de los datos que entran al pdf
          
             if (!selectbusqueda || selectbusqueda === "Escribe para buscar...") {
@@ -127,7 +136,10 @@ const formulario = document.getElementById("formulario");
                 impactogiro,
                 factibilidaduso,
                 selectbusqueda,
-                areapredio
+                areapredio,
+                selectbusqueda2,
+                impactogiro2,
+                factibilidaduso2,
 
                 //entorno
             });
