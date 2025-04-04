@@ -30,13 +30,13 @@ $(document).ready(function () {
     }
 
     function updateSelectBusquedaSec(selectedValue) {
-        console.log(selectedValue, "select value 1");
         $.ajax({
             url: 'bd/queryGirosSecu.php', // Consulta para el segundo select
             type: 'GET',
             dataType: 'json',
             data: { trans: selectedValue }, // Enviar el valor de select-busqueda
             success: function (data) {
+                // console.log(data, "data from second select");
                 let $selectSec = $('.select-busquedaSec');
                 $selectSec.empty().trigger('change'); // Limpiar opciones previas sin reescribir el HTML
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
                 $selectSec.trigger('change'); // Notificar a Select2 que se actualizaron los datos
             }
         });
-        console.log(selectedValue, "data")
+        // console.log(selectedValue, "data")
     }
 
     // Inicializar select principal

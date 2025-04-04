@@ -10,6 +10,7 @@ $(document).ready(() => {
             $(factibilidadClass).val("");
             return;
         }
+
         $.ajax({
             url: 'bd/querygirosautocompletado.php',
             type: 'GET',
