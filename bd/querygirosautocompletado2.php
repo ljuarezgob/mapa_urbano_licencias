@@ -13,11 +13,11 @@ $buscar = pg_escape_string($buscar);
 // Arreglo para almacenar los resultados
 $result_array = [];
 
-
+// echo $buscar;
 $query = "
     SELECT gs.factibilidad_uso_sec AS fact_uso, gs.impacto_giro_sec AS impact_uso
     FROM giro_secu gs 
-    WHERE gs.id_giro_sec = $buscar
+    WHERE gs.nombre_giro_sec = '$buscar'
     LIMIT 50;
 ";
 
@@ -32,7 +32,7 @@ if (!$result) {
 
 // Procesar los resultados
 while ($row = pg_fetch_assoc($result)) {
-    $result_array[] = $row; // Formato requerido: [ { "id": ..., "text": ... } ]
+    $result_array[] = $row;
 }
 
 // Devolver los resultados en formato JSON

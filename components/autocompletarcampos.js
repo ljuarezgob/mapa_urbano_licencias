@@ -1,51 +1,60 @@
 $(document).ready(() => {
-    $('.select-busqueda').select2();   // Asegura que Select2 esté activado
-    $('.select-busqueda').on('change', function () {
+    $('.select-busqueda').select2(); // Activa Select2
 
-        let valor = $(this).val(); // Obtiene el valor seleccionad, osea el id del giro que pertenece a la base de datos.
-        console.log(valor, " valor de la variable")
+    //le pasamos los parametros a la funcion para que haga la propia consulta a la base de datos
+    // y se autocompleten los campos respectivos
+    function handleSelectChange(selectClass, impactoClass, factibilidadClass) {
+        let valor = $(selectClass).val();
         if (!valor || valor === "") {
-            // console.log("No se ha seleccionado ningún valor");
-            $('.impactogiro').val(""); //limpiar el campo
-            $('.factibilidaduso').val("");
+            $(impactoClass).val(""); // Limpiar campo
+            $(factibilidadClass).val("");
             return;
         }
         $.ajax({
             url: 'bd/querygirosautocompletado.php',
             type: 'GET',
             dataType: 'json',
-            data: { search: valor }, //Envia la variable al archivo php 
+            data: { search: valor },
             success: function (response) {
-                console.log("Respuesta del servidor:", response);
-                // Aquí puedes hacer algo con la respuesta, como mostrarla en un input
-                $('.factibilidaduso').val(response[0].fact_uso || "");
-                $('.impactogiro').val(response[0].impact_uso || "");
-            },
-
+                // console.log("Respuesta del servidor:", response);
+                // console.log("Respuesta del servidor:", response[0]?.fact_uso);
+                // console.log("Respuesta del servidor:", response[0]?.impact_uso);
+                $(factibilidadClass).val(response[0]?.fact_uso || "");
+                $(impactoClass).val(response[0]?.impact_uso || "");
+            }
         });
-    });
-    $('.select-busquedaSec').on('change', function () {
+    }
 
-        let valor = $(this).val(); // Obtiene el valor seleccionad, osea el id del giro que pertenece a la base de datos.
-        console.log(valor, " valor de la variable")
+    //Envia la informacion a los
+    function handleSelectChange2(selectClass, impactoClass, factibilidadClass) {
+        let valor = $(selectClass).val();
         if (!valor || valor === "") {
-            // console.log("No se ha seleccionado ningún valor");
-            $('.impactogiro2').val(""); //limpiar el campo
-            $('.factibilidaduso2').val("");
+            $(impactoClass).val(""); // Limpiar campo
+            $(factibilidadClass).val("");
             return;
         }
+
         $.ajax({
-            url: 'bd/querygirosautocompletado.php',
+            url: 'bd/querygirosautocompletado2.php',
             type: 'GET',
             dataType: 'json',
-            data: { search: valor }, //Envia la variable al archivo php 
+            data: { search: valor },
             success: function (response) {
-                console.log("Respuesta del servidor:", response);
-                // Aquí puedes hacer algo con la respuesta, como mostrarla en un input
-                $('.factibilidaduso2').val(response[0].fact_uso || "");
-                $('.impactogiro2').val(response[0].impact_uso || "");
-            },
-
+                // console.log("Respuesta del servidor:", response);
+                // console.log("Respuesta del servidor:", response[0]?.fact_uso);
+                // console.log("Respuesta del servidor:", response[0]?.impact_uso);
+                $(factibilidadClass).val(response[0]?.fact_uso || "");
+                $(impactoClass).val(response[0]?.impact_uso || "");
+            }
         });
-    });
+    }
+
+    // Delegación de eventos para múltiples select
+    $(document).on('change', '.select-busqueda', function () {
+        handleSelectChange(this, '.impactogiro', '.factibilidaduso');
+    }); //giro1
+
+    $(document).on('change', '.select-busquedaSec', function () {
+        handleSelectChange2(this, '.impactogiro2', '.factibilidaduso2');
+    }); // giro2 
 });
