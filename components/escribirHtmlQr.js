@@ -17,11 +17,11 @@
  var y  = urlParams.get('y');
  var urlqr = 'http://10.10.23.178/geomatica/pruebas/mapa_urbano_licencias/?latitud='+latitud+'&longitud='+longitud;
 
- console.log(giroSolicitado2);
- console.log(areaPredio2);
- console.log(impactogiro2);
- console.log(factibilidaduso2);
- console.log("URL del QR:", urlqr);
+//  console.log(giroSolicitado2);
+//  console.log(areaPredio2);
+//  console.log(impactogiro2);
+//  console.log(factibilidaduso2);
+//  console.log("URL del QR:", urlqr);
 
  
 
