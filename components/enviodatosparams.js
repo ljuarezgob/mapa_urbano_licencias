@@ -96,6 +96,8 @@ function contenedorSec() {
     });
 }
 function ImprimirFormulario() {
+    //
+    const regex = /^[0-9]+(\.[0-9]+)?$/;
     //checkbox
     const miCheckbox = document.getElementById('myCheck');
     const checkboxEstado = miCheckbox.checked ? true : false; // "1" si está marcado, "0" si no
@@ -119,25 +121,31 @@ function ImprimirFormulario() {
     const areapredio2 = document.querySelector('.areapredio2')?.value;
     const impactogiro2 = document.querySelector('.impactogiro2')?.value;
     const factibilidaduso2 = document.querySelector('.factibilidaduso2')?.value;
+    
     //validaciones de los datos que entran al pdf
+    if(!urlimagen || urlimagen === ""){
+        alert("Especificar tamaño de predio");
+        return;
+    } 
 
-    console.log(selectbusqueda2, "Select busqueda dos")
     if (!selectbusqueda || selectbusqueda === "Escribe para buscar...") {
         alert("Seleccionar un giro en la barra de búsqueda.");
         return;
     }
+    
     if (!areapredio) {
-        alert("El campo area predio es obligatorio");
+        alert("El campo 'Area del predio' es obligatorio");
         return;
     }
-    const regex = /^[0-9]+$/;
+
+    
     if (!regex.test(areapredio)) {
         alert("Digita un numero valido para area del predio.");
         return;
     } 
     
-    if (checkboxEstado === true && (impactogiro2 === "" && factibilidaduso2 === "")) {
-        alert("Selecciona un giro secundario");
+    if (checkboxEstado === true && (impactogiro2 === "" || factibilidaduso2 === "")) {
+        alert("Selecciona un sub giro");
         return;
     }
 
