@@ -16,11 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log(factibilidaduso, " impact giro 2 content");
 
 
-    
+    let isChecked = checkboxEstado === "true";
+
     // Ocultar si no hay giro solicitado o si el checkbox está desmarcado
-    if (!giroSolicitado || giroSolicitado === "Escribe para buscar..." || 
-        checkboxEstado === false ) {
-    
+    if (!giroSolicitado || giroSolicitado === "Escribe para buscar..." ||
+        !isChecked) {
+
         // contenedor.style.display = "none";
         // ocultamos los contenedores que permanezcan a ese nombre y no se envie
         //dependiendo si selecciono el giro 2
