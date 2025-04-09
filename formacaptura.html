@@ -37,7 +37,7 @@
     <div class="container mt-3">
         <!-- Espacio para la imagen -->
         <div class="mb-3 text-center">
-            <img id="preview-image" src="./img/nomapa.png" alt="Vista previa" class="img-fluid rounded">
+            <img id="preview-image" style="display: none;" src="./img/nomapa.png" alt="Vista previa" class="img-fluid rounded">
         </div>
 
         <!-- Controles suma , resta e impresión -->
@@ -100,7 +100,7 @@
             <div class="contenedor">
 
                 <div class="barra-titulo primario">
-                    <p style="margin: 0; flex: 1;">Principal</p>
+                    <p id="titulo-primario"style="margin: 0; flex: 1;">Principal</p>
                     <button
                      type="button" class="btn-despegable-giro">▼</button>
                 </div>
@@ -120,7 +120,8 @@
                         <div style=" padding: 2px; text-align: start;">
                             <label for="areapredio" class="form-label">Área del Predio (m²)</label>
                         </div>
-                        <input  value="" type="text" maxlength="6"  class="form-control areapredio" required>
+                        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" +
+                        value="" type="text" maxlength="6"  class="form-control areapredio" required>
                     </div>
 
 
@@ -163,7 +164,7 @@
             <div class="contenedor"  id="contenedor-giro-sec" style="display: none;" >
 
                 <div class="barra-titulo secundario">
-                    <p style="margin: 0; flex: 1;">Secundario</p>
+                    <p id="titulo-secundario" style="margin: 0; flex: 1;">Secundario</p>
                     <button  type="button" class="btn-despegable-giro">▼</button>
                 </div>
 
@@ -197,7 +198,7 @@
                         <div style=" padding: 2px; text-align: start;">
                             <label for="areapredio" class="form-label">Impacto de Giro</label>
                         </div>
-                        <input style="height: 35px;" class="form-control impactogiro2 bg-light" disabled />
+                        <input  style="height: 35px;" class="form-control impactogiro2 bg-light" disabled />
                     </div>
 
 

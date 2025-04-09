@@ -75,7 +75,6 @@ function contenedorSec() {
     let miDiv = document.getElementById("contenedor-giro-sec"); //llamamos al contenedor del segundo giro para que se muestre
     const selectbusqueda2 = document.querySelector('.select-busquedaSec')?.value; //el id  original está oculto de la libreria select2
 
-
     if (!miCheckbox || !miDiv) {
         console.error("Checkbox o div no encontrados.");
         return;
@@ -95,6 +94,7 @@ function contenedorSec() {
 
     });
 }
+
 function ImprimirFormulario() {
     //
     const regex = /^[0-9]+(\.[0-9]+)?$/;
@@ -138,7 +138,6 @@ function ImprimirFormulario() {
         return;
     }
 
-    
     if (!regex.test(areapredio)) {
         alert("Digita un numero valido para area del predio.");
         return;
