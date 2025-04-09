@@ -14,7 +14,6 @@ $(document).ready(function () {
                 data: function (params) {
                     return {
                         search: params.term, // Enviar término de búsqueda
-                        trans: $('.select-busqueda').val() // Valor seleccionado
                     };
                 },
                 processResults: function (data) {
@@ -30,29 +29,38 @@ $(document).ready(function () {
     }
 
     function updateSelectBusquedaSec(selectedValue) {
-        $.ajax({
-            url: 'bd/queryGirosSecu.php', // Consulta para el segundo select
-            type: 'GET',
-            dataType: 'json',
-            data: { trans: selectedValue }, // Enviar el valor de select-busqueda
-            success: function (data) {
-                // console.log(data, "data from second select");
-                let $selectSec = $('.select-busquedaSec');
-                $selectSec.empty().trigger('change'); // Limpiar opciones previas sin reescribir el HTML
-
-                // Agregar nuevas opciones al select
-                $selectSec.append(new Option('Selecciona un subgiro......', '', true, true)); // Marcado como seleccionado
-
-                $.each(data, function (index, item) {
-                    let newOption = new Option(item.sub_giro, item.sub_giro, false, false);
-                    $selectSec.append(newOption);
-                });
-
-
-                $selectSec.trigger('change'); // Notificar a Select2 que se actualizaron los datos
-            }
+        $('.select-busquedaSec').select2({
+            placeholder: 'Ingresa subgiro',
+            allowClear: true,
+            minimumInputLength: 3,
+            ajax: {
+                url: 'bd/queryGirosSecu.php',
+                dataType: 'json',
+                type: 'GET',
+                delay: 250, // Para evitar demasiadas peticiones mientras escribe
+                data: function (params) {
+                    return {
+                        tap: params.term, // params.term es el texto que el usuario escribió
+                        trans: selectedValue
+                    };
+                },
+                processResults: function (data) {
+                    // Suponiendo que `data` es un array de objetos con propiedad sub_giro
+                    return {
+                        results: data.map(function (item) {
+                            return {
+                                id: item.sub_giro,
+                                text: item.sub_giro
+                            };
+                        })
+                    };
+                },
+                cache: true
+            },
+            dropdownParent: $('body')
         });
-        // console.log(selectedValue, "data")
+        
+        
     }
 
     // Inicializar select principal

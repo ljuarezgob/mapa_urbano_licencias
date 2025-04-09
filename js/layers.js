@@ -823,6 +823,10 @@ function handleClickReporte() {
 
       // Obtener dimensiones del contenedor
       const contenedor = iframeDocument.getElementById('preview-image');
+      //mostramos la foto al dar click
+      if(contenedor){
+        contenedor.style.display = "inline";
+      }
       const width = contenedor.offsetWidth;
       const height = contenedor.offsetHeight;
 
