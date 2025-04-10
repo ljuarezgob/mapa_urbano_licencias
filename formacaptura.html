@@ -34,10 +34,10 @@
 <body>
 
     <!-- Este es el container del uso de suelo -->
-    <div class="container mt-3">
+    <div class="container mt-3" id="form-total" style="display: none;">
         <!-- Espacio para la imagen -->
         <div class="mb-3 text-center">
-            <img id="preview-image" style="display: none;" src="./img/nomapa.png" alt="Vista previa" class="img-fluid rounded">
+            <img id="preview-image"  src="./img/nomapa.png" alt="Vista previa" class="img-fluid rounded">
         </div>
 
         <!-- Controles suma , resta e impresión -->
@@ -93,14 +93,13 @@
             -->
 
             <!--<textarea class="form-control" id="entorno" rows="1" required disabled></textarea>-->
-            <div id="entorno" class="form-control mt-2 mb-2"></div>
-
-            <p>Se hacen por modulos</p>
+            <div id="entorno" style="display: block;" class="form-control mt-2 mb-2"></div>
             <!-- Este div es para desplegar informacion del giro1 -->
             <div class="contenedor">
 
                 <div class="barra-titulo primario">
-                    <p id="titulo-primario"style="margin: 0; flex: 1;">Principal</p>
+                    <img src="" />
+                    <p  id="titulo-primario"style="margin: 0; flex: 1;">Principal</p>
                     <button
                      type="button" class="btn-despegable-giro">▼</button>
                 </div>
