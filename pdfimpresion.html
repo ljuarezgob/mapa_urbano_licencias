@@ -123,10 +123,18 @@
                 <label>Versión:</label> 00
             </div>
             
-            <div class="pegadito">
-                <label>Giro Solicitado:</label>
-                <span class="giro-solicitado"  id="girosolicitado">XXXX</span>
-                
+            <div class="pegadito" style="display: flex; flex-direction: column; align-items: flex-start; ">
+                <div style="display: flex;">
+
+                    <label>Giro Principal:</label>
+                    <span class="giro-solicitado"  class="girosolicitado">XXXX</span>
+                    
+                </div>
+                <div id="contenedor-sec" style="display: flex;">
+                    <label>Giro secundario:</label>
+                    <span class="giro-solicitado2"  class="girosolicitado2">XXXX</span>
+
+                </div>
             </div>
             <br/>
             <div class="row">
@@ -134,37 +142,10 @@
                 <label>Tipo de Trámite:</label> XXXX
                 <label>Lic. Vigente:</label> XXXX
             </div>
+            
         </div>
 
-
-        
-        <!-- Modulo dos. Se escribe para los giros dos -->
-        <div id="contenedor-sec">    
-            <hr>
-            
-            <div class="module">
-                <div class="row">
-                    <label>Código:</label> FA-11-05-21
-                    <label>Emisión:</label> 12-MAYO-24
-                    <label>Actualización:</label> N/A
-                    <label>Versión:</label> 00
-                </div>
-                
-                <div class="pegadito">
-                    <label>Giro Solicitado:</label>
-                    <span class="giro-solicitado2"  id="girosolicitado2">XXXX</span>
-                    
-                </div>
-                <br/>
-                <div class="row">
-                    <label>Superficie M2:<span style="margin-left: 6px; font-weight: normal;" 
-                        id="superficiem2-result2"></span> </label>
-                        <label>Tipo de Trámite:</label> XXXX
-                        <label>Lic. Vigente:</label> XXXX
-                    </div>
-                </div>
-        </div>        
-    
+  
 
   <!-- Modulo de Ubicación del Predio -->
 <div class="separator" style="background-color: #E31294;">Ubicación del Predio</div>
@@ -284,17 +265,35 @@
                     <!--<label>Uso de Suelo: </label>XXX<br/>-->
                     <label>Plan Parcial:</label> <span id="planparcial-result"></span><br/>
                     <label>Uso de Suelo: </label><span id="usosuelo-result"></span><br/>
-                    <label>Impacto de Giro: </label><span id="impactogiro-result"></span><br/>
-                    <label>Factibilidad de Uso: </label><span id="factibilidaduso-result"></span><br/>
-                    <div id="contenedor-sec">
+                    <div>
                         <hr>
+                        <div class="pegadito" style="display: flex;">
+                            
+                            <label>Giro Principal:</label>
+                            <span class="giro-solicitado"  class="girosolicitado">XXXX</span>
+                            
+                        </div>
+                        <div style="margin: 15px;">
 
-                        <label>Plan Parcial:</label> <span id="planparcial-result"></span><br/>
-                        <label>Uso de Suelo: </label><span id="usosuelo-result"></span><br/>
-                        <label>Impacto de Giro: </label><span id="impactogiro-result2"></span><br/>
-                        <label>Factibilidad de Uso: </label><span id="factibilidaduso-result2"></span><br/>
+                            <label>Impacto de Giro: </label><span id="impactogiro-result"></span><br/>
+                            <label>Factibilidad de Uso: </label><span id="factibilidaduso-result"></span><br/>
+                        </div>
                     </div>
 
+                    <div id="contenedor-sec">
+                        <hr>
+                        <div style="display: flex; margin-top: 15px;">
+
+                            <label>Giro secundario:</label>
+                            <span style="width: 200px;" class="giro-solicitado2"  class="girosolicitado2">XXXX</span>
+                        </div>
+                        <div style="margin: 15px;">
+
+                            <label>Impacto de Giro: </label><span id="impactogiro-result2"></span><br/>
+                            <label>Factibilidad de Uso: </label><span id="factibilidaduso-result2"></span><br/>
+                        </div>
+                        </div>
+                   
                 </div>
                 <div class="note">
                     Bajo protesta de decir verdad, manifiesto que los datos otorgados para la obtención de la presente consulta de uso de suelo son correctos.
