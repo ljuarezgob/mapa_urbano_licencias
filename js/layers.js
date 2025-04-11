@@ -583,7 +583,24 @@ function returne3uso(json, lyr) {
     }
   }
   
-  lyr.on('click', function (e) {
+  function dictaminarS(params){
+    const iframes = document.getElementById('formacaptura-iframe');
+    const iframeDocuments = iframes.contentDocument || iframes.contentWindow.document;
+    const contenedors = iframeDocuments.getElementById("form-total");
+
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = params;
+
+    const p = tempDiv.querySelector("p");
+    const textoP = p ? p.textContent.trim() : "";
+
+
+    console.log(textoP, " textoP *******************");
+ 
+    
+
+  }
+  lyr.on('click', function(e) {
     //estos frames son para ocultar la informacion cada vez que se hace click
     const iframes = document.getElementById('formacaptura-iframe');
     const iframeDocuments = iframes.contentDocument || iframes.contentWindow.document;
@@ -591,6 +608,8 @@ function returne3uso(json, lyr) {
     const contenedors = iframeDocuments.getElementById("form-total");
     const data = iframeDocuments.getElementById("formulario");
 
+ 
+    
     resetS();
     if (contenedors) {
       // Ocultar el contenedor
@@ -660,199 +679,7 @@ function returne3uso(json, lyr) {
     }
   });
 
-  // Función que maneja el evento del botón
-  function handleClickReporte2() {
-    console.log("Botón de reporte presionado, haciendo AJAX...");
-    console.log("Latitud: " + lat + ", Longitud: " + lng); // Mostrar las coordenadas
-
-    //sidebar.open('consultaus');
-
-
-    $.ajax({
-      url: './bd/infousosuelo.php',
-      type: 'GET',
-      data: {
-        lat: lat,
-        lon: lng
-      },
-      success: function (result) {
-        sidebar.close();
-        // 4. Procesar la respuesta y mostrarla en el sidebar
-        console.log('Respuesta del servidor:', result);
-        // Limpiar el contenido previo
-        //const dataList = $('#data-list');
-        //dataList.empty(); 
-        var data = JSON.parse(result);
-        console.log(data);
-        //if (data.gid >= 1) {
-        sidebar.open('consultaus');
-
-        document.getElementById('ngid').value = data.gid || '';
-
-        document.getElementById('ngid').style.display = 'none';
-        document.querySelector('[for="ngid"]').style.display = 'none';
-
-
-        /* let imagen = "";
-         $box = data.extent;   
-         $box = str_replace("BOX(", "", $box);
-         $box= str_replace(")", "", $box);
-         $box = str_replace(" ", ",", $box);
-         $box = str_replace(",", "%2C", $box);
-         if ($box == '') { 
-           $wmsPNG = $imagen2; //echo ('No existe predio en la cartografía'); //die();
-         }
-         else {*/
-
-        // Suponiendo que `data.extent` contiene el valor de la extensión
-        let box = data.extent_predio || '';  // Si no hay valor, asignamos una cadena vacía
-        let boximg = data.extent_predio || '';
-
-
-        box = box.replace("BOX(", "").replace(")", "").replace(/ /g, ",").replace(/,/g, "%2C");
-
-        boximg = boximg.replace("BOX(", "").replace(")", "").replace(/ /g, ",").replace(/,/g, ",")
-        boximg = "[" + boximg + "]";
-
-
-        //let bbox = [-103.395334732013, 20.7214375325918, -103.39418267082, 20.7225214178951];
-
-
-        console.log(box);
-        ///let imageUrl = "http://10.10.23.178:8000/geoserver/geomatica/wms?service=WMS&version=1.1.0&request=GetMap&layers=geomatica%3Avista_colonias_edit&bbox=" + box + "&width=600&height=768&srs=EPSG%3A4326&format=image%2Fpng&CQL_FILTER=gid=" + data.gid;
-        ///console.log(imageUrl);
-        // Asignar la URL a la etiqueta de imagen
-        ///document.getElementById('preview-image').src = imageUrl;
-        //}
-
-
-        console.log(box);
-
-        // Obtener el contenedor específico donde está la imagen
-        const contenedor = document.getElementById('preview-image');  // Reemplaza 'miContenedor' por el ID del contenedor de la imagen
-
-        // Obtener las dimensiones del contenedor
-        const width = contenedor.offsetWidth;  // Ancho del contenedor
-        const height = contenedor.offsetHeight;  // Alto del contenedor
-
-        // Construir la URL del WMS con los parámetros dinámicos
-        let imageUrl2 = "http://10.10.23.178:8000/geoserver/geomatica/wms?service=WMS&version=1.1.0&request=GetMap&layers=geomatica%3Avista_colonias_edit&bbox=" + box + "&width=" + width + "&height=" + height + "&srs=EPSG%3A4326&format=image%2Fpng&CQL_FILTER=gid=" + data.gid;
-
-
-        let imageUrl3 = "https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?service=WMS&version=1.1.0&request=GetMap&layers=geomatica%3Azpn_e3_utilizacion_suelo,geomatica%3Azpn_clasificacion_areas,geomatica%3Azpn_e3_utilizacion_suelo_etiquetas,geomatica%geomatica%3Azpn_predios,geomatica%3Aubicacion&viewparams=longitud%3A-103.39066028594972;latitud%3A20.72335074390707&bbox=" + box + "&width=" + width + "&height=" + height + "&srs=EPSG%3A4326&format=image%2Fpng"
-
-
-
-        let imageUrl4 = "https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?service=WMS&version=1.1.0&request=GetMap&layers=" +
-          "geomatica%3Azpn_centros_urbanos_punto," +
-          "geomatica%3Aarea_desarrollo_controlado," +
-          "geomatica%3Azpn_centros_urbanos_punto," +
-          "geomatica%3Azpn_e3_utilizacion_suelo," +
-          "geomatica%3Azpn_e3_utilizacion_suelo_etiquetas," +
-          "geomatica%3Azpn_arroyo_vehicular," +
-          "geomatica%3Azpn_estructura_vial," +
-          "geomatica%3Aarea_desarrollo_controlado," +
-          "geomatica%3Azpn_ppe," +
-          //"geomatica%3Azpn_limite_distrito,"+
-          "geomatica%3Azpn_predios," +
-          "geomatica%3Aubicacion&viewparams=longitud%3A" + data.longitud_out + ";latitud%3A" + data.latitud_out + "&bbox=" + box + "&width=" + width + "&height=" + height + "&srs=EPSG%3A4326&format=image%2Fpng"
-
-        let imageUrl = "https://mapa.zapopan.gob.mx:8000/geoserver/geomatica/wms?service=WMS&version=1.1.0&request=GetMap&layers=" +
-          "geomatica%3Azpn_centros_urbanos_punto," +
-          "geomatica%3Aarea_desarrollo_controlado," +
-          "geomatica%3Azpn_centros_urbanos_punto," +
-          "geomatica%3Azpn_e3_utilizacion_suelo," +
-          "geomatica%3Azpn_e3_utilizacion_suelo_etiquetas," +
-          "geomatica%3Azpn_arroyo_vehicular," +
-          "geomatica%3Azpn_estructura_vial," +
-          "geomatica%3Aarea_desarrollo_controlado," +
-          "geomatica%3Azpn_ppe," +
-          //"geomatica%3Azpn_limite_distrito,"+
-          "geomatica%3Azpn_predios," +
-          "geomatica%3Aubicacion&viewparams=longitud%3A" + data.longitud_out + ";latitud%3A" + data.latitud_out + "&bbox=" + box + "&width=300&height=300&srs=EPSG%3A4326&format=image%2Fpng"
-
-
-
-        console.log(imageUrl);
-
-        // Asignar la URL a la etiqueta de imagen
-        const imageElement = document.getElementById('preview-image');
-        imageElement.src = imageUrl;
-
-        // Asegúrate de que la imagen se ajuste correctamente al contenedor sin deformarse
-        imageElement.style.width = "100%"; //650; //"100%"; // La imagen ocupa el 100% del ancho del contenedor
-        imageElement.style.height = "auto"; //300; //"auto"; // Mantiene la relación de aspecto de la imagen
-        imageElement.style.objectFit = "contain"; // Asegura que la imagen no se recorte ni deforme
-
-
-
-
-        //                let imageUrl = "http://10.10.23.178:8000/geoserver/geomatica/wms?service=WMS&version=1.1.0&request=GetMap&layers=geomatica%3Avista_colonias_edit&bbox=-103.620600602706%2C20.5792307731686%2C-103.323168821484%2C20.9594146174057&width=600&height=768&srs=EPSG%3A4326&format=image%2Fpng&CQL_FILTER=gid="+data.gid;
-        //                document.getElementById('preview-image').src = imageUrl;
-
-        document.getElementById('urlimagen').value = imageUrl || '';
-
-        document.getElementById('planparcial').value = data.distrito || '';
-        document.getElementById('claveusosuelo').value = data.util_suelo || ' ';
-        document.getElementById('usosuelo').value = data.cve_util || '';
-        document.getElementById('entorno').innerHTML = data.entorno || '';
-        document.getElementById('restriccion').value = data.restriccion || '';
-        document.getElementById('longitud').value = data.longitud_out || '';
-        document.getElementById('latitud').value = data.latitud_out || '';
-        document.getElementById('x').value = data.x || '';
-        document.getElementById('y').value = data.y || '';
-        document.getElementById('vbbox').value = boximg || '';
-
-
-
-
-        /* document.getElementById('nombre').value = data.nombre || '';
-         document.getElementById('distrito').value = data.distrito || '';
-         document.getElementById('dependencia').value = data.dependenci || '';
-         document.getElementById('expediente').value = data.expediente || '';
-         document.getElementById('antecedentes').value = data.antecedent || '';
-         document.getElementById('urlplano').value = data.url_plano || '';
-         document.getElementById('vobomesa').value = data.vobo_mesa || '';
-         document.getElementById('observaciones').value = data.observacio || '';*/
-
-        // } else { sidebar.close(); }
-
-
-        // Asumimos que la respuesta es un array o un objeto
-
-      },
-      error: function (xhr, status, error) {
-        sidebar.close();
-        console.error("Error en la consulta AJAX:", error);
-      }
-    });
-
-
-
-
-
-
-
-
-    // Aquí iría tu lógica AJAX
-    /*
-    fetch('url-del-reporte', {
-      method: 'GET',
-      // Aquí puedes agregar headers si es necesario
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Datos del reporte:', data);
-      // Aquí puedes manipular los datos recibidos
-    })
-    .catch(error => {
-      console.error('Error en el reporte:', error);
-    });
-    */
-  }
-
-
-  // Función que maneja el evento del botón
+   // Función que maneja el evento del botón
   function handleClickReporte() {
     console.log("Botón de reporte presionado, haciendo AJAX...");
     console.log("Latitud: " + lat + ", Longitud: " + lng); // Mostrar las coordenadas
@@ -872,6 +699,8 @@ function returne3uso(json, lyr) {
         // Procesar la respuesta
         var data = JSON.parse(result);
         console.log(data);
+        console.log(data.entorno, " data entorno *******************");
+        dictaminarS(data.entorno);
 
         sidebar.open('consultaus');
 
