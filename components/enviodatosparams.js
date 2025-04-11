@@ -95,6 +95,22 @@ function contenedorSec() {
     });
 }
 
+// enviodatosparams.js
+function validarCampos() {
+    const areapredio = document.getElementById('areapredio')?.value;
+  
+    if (!areapredio) {
+      // Aquí no hacemos Swal directamente (si estamos en otra página),
+      // sino que dejamos una marca para que index.html lo muestre.
+      localStorage.setItem('areaPrediols', true);
+      
+      // Redirige a index.html donde se mostrará el alert
+      window.location.href = 'index.html';
+      return false;
+    }
+  }
+  
+
 function ImprimirFormulario() {
     //
     const regex = /^[0-9]+(\.[0-9]+)?$/;
@@ -123,28 +139,20 @@ function ImprimirFormulario() {
     const factibilidaduso2 = document.querySelector('.factibilidaduso2')?.value;
     
     //validaciones de los datos que entran al pdf
-    if(!urlimagen || urlimagen === ""){
-        alert("Especificar tamaño de predio");
-        return;
-    } 
+     
 
     if (!selectbusqueda || selectbusqueda === "Escribe para buscar...") {
-        alert("Seleccionar un giro en la barra de búsqueda.");
+        window.sessionStorage.setItem("selectbusquedals", 'true');
         return;
     }
     
     if (!areapredio) {
-        alert("El campo 'Area del predio' es obligatorio");
-        return;
+       window.sessionStorage.setItem("areaPrediols", 'true');
+       return;
     }
 
-    if (!regex.test(areapredio)) {
-        alert("Digita un numero valido para area del predio.");
-        return;
-    } 
-    
     if (checkboxEstado === true && (impactogiro2 === "" || factibilidaduso2 === "")) {
-        alert("Selecciona un sub giro");
+        window.sessionStorage.setItem("checkBoxls", 'true');
         return;
     }
 
