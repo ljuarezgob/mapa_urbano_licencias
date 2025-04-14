@@ -17,7 +17,7 @@ $result_array = [];
 $query = "
     SELECT gs.factibilidad_uso_sec AS fact_uso, gs.impacto_giro_sec AS impact_uso
     FROM giro_secu gs 
-    WHERE gs.nombre_giro_sec = '$buscar'
+    WHERE gs.id_giro_sec = '$buscar'
     LIMIT 50;
 ";
 
