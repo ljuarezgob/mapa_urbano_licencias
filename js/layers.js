@@ -695,7 +695,7 @@ function resetS() {
                 contenedors.style.display = "none";
                 Swal.fire({
                   title: '¡Aviso!',
-                  icon: 'info',
+                  // icon: 'info',
                   html: `
                     <p>En esta zona no se puede dictaminar el área. Por favor, vaya al siguiente enlace para darle seguimiento a su proceso:</p>
                     <a href="https://www.zapopan.gob.mx/v3/" target="_blank">Ir al sitio web</a>

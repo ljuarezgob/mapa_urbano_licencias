@@ -8,7 +8,8 @@ $tap = $_GET["tap"] ?? '';
 // Evitar inyecciones SQL
 $trans = pg_escape_string($trans);
 $result_array = [];
-
+// echo ($tap);
+// echo $trans;
 // $nombre_giro_query ="  
 //     SELECT l.nombre_giro AS nombre  
 //     FROM licencias l  

@@ -49,7 +49,7 @@ $(document).ready(function () {
                     return {
                         results: data.map(function (item) {
                             return {
-                                id: item.sub_giro,
+                                id: item.id,
                                 text: item.sub_giro
                             };
                         })

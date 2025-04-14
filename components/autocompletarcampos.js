@@ -37,17 +37,15 @@ $(document).ready(() => {
         });
     }
 
-
-
-
     function handleSelectChange2(selectClass, impactoClass, factibilidadClass) {
 
         if (ischanging) return; // ← Salida anticipada para evitar recursión
 
         let valor = $(selectClass).val();
 
-        const selectbusqueda2 = document.querySelector('.select-busquedaSec')?.value; //el id  original está oculto de la libreria select2
-
+        const selectbusqueda2 = document.querySelector('.select-busquedaSec'); //el id  original está oculto de la libreria select2
+        const textoSeleccionado = select.options[select.selectedIndex]?.text || "";
+        
         if (selectbusqueda2) {
             document.getElementById("titulo-secundario").textContent = "Seleccionar una opción";
         }
@@ -57,9 +55,6 @@ $(document).ready(() => {
             $(impactoClass).val(""); // Limpiar campo
             $(factibilidadClass).val("");
             document.getElementById("titulo-secundario").textContent = "Secundario";
-
-
-
 
             if (!emptyOptionExists) {
                 const emptyOption = document.createElement("option");
@@ -87,7 +82,7 @@ $(document).ready(() => {
                 let fact = response[0]?.fact_uso || "";
                 $(factibilidadClass).val(response[0]?.fact_uso || "");
                 $(impactoClass).val(response[0]?.impact_uso || "");
-                icons2(fact, selectbusqueda2)
+                icons2(fact, textoSeleccionado)
 
             }
         });
@@ -116,6 +111,7 @@ $(document).ready(() => {
         }
 
     }
+
     function icons2(factParam, data) {
 
         if (factParam === "Compatible") {
@@ -139,6 +135,7 @@ $(document).ready(() => {
         }
 
     }
+    
     // Delegación de eventos para múltiples select
     $(document).on('change', '.select-busqueda', function () {
         handleSelectChange(this, '.impactogiro', '.factibilidaduso', '.areapredio', handleSelectChange2(this, '.impactogiro2', '.factibilidaduso2'));
