@@ -509,26 +509,7 @@ function returne3usoXX(json, lyr) {
 
 
 }
-
-
-
-function returne3uso(json, lyr) {
-
-  var url_base = "./imagenes/";
-  var att = json.properties;
-  var documentoSinEspacios = att.documento.replace(/\s+/g, "");
-  var imageUrl = url_base + documentoSinEspacios + ".png"; // Asume que la imagen es un archivo .PNG.
-  //var defaultImageUrl = url_base + "SIN_FOTO.png"; // URL de la imagen por defecto.
-  //var imageHTML = '<img src="' + imageUrl + '" alt="Imagen" style="width:100%;max-width:300px;" onerror="this.onerror=null;this.src=\'' + defaultImageUrl + '\';" />';
-  var lat, lng;
-
-
-  /*if (imageUrl === defaultImageUrl) {
-    imageHTML = '<img src="' + defaultImageUrl + '" alt="Imagen no disponible" style="width:100%;max-width:300px;" />';
-    }*/
-
-  // Funcion para resetear los fomrularios de primario y secunario
-  function resetS() {
+function resetS() {
     const iframes = document.getElementById('formacaptura-iframe');
     const iframeDocuments = iframes.contentDocument || iframes.contentWindow.document;
   
@@ -582,24 +563,28 @@ function returne3uso(json, lyr) {
       $(multipleSelect2).val('').trigger('change');
     }
   }
-  
-  function dictaminarS(params){
-    const iframes = document.getElementById('formacaptura-iframe');
-    const iframeDocuments = iframes.contentDocument || iframes.contentWindow.document;
-    const contenedors = iframeDocuments.getElementById("form-total");
-
-    const tempDiv = document.createElement("div");
-    tempDiv.innerHTML = params;
-
-    const p = tempDiv.querySelector("p");
-    const textoP = p ? p.textContent.trim() : "";
 
 
-    console.log(textoP, " textoP *******************");
+ function returne3uso(json, lyr) {
+
+  var url_base = "./imagenes/";
+  var att = json.properties;
+  var documentoSinEspacios = att.documento.replace(/\s+/g, "");
+  var imageUrl = url_base + documentoSinEspacios + ".png"; // Asume que la imagen es un archivo .PNG.
+  //var defaultImageUrl = url_base + "SIN_FOTO.png"; // URL de la imagen por defecto.
+  //var imageHTML = '<img src="' + imageUrl + '" alt="Imagen" style="width:100%;max-width:300px;" onerror="this.onerror=null;this.src=\'' + defaultImageUrl + '\';" />';
+  var lat, lng;
+
+
+  /*if (imageUrl === defaultImageUrl) {
+    imageHTML = '<img src="' + defaultImageUrl + '" alt="Imagen no disponible" style="width:100%;max-width:300px;" />';
+    }*/
+
+  // Funcion para resetear los fomrularios de primario y secunario
  
-    
-
-  }
+  
+  
+ 
   lyr.on('click', function(e) {
     //estos frames son para ocultar la informacion cada vez que se hace click
     const iframes = document.getElementById('formacaptura-iframe');
@@ -609,12 +594,10 @@ function returne3uso(json, lyr) {
     const data = iframeDocuments.getElementById("formulario");
 
  
-    
     resetS();
     if (contenedors) {
       // Ocultar el contenedor
       contenedors.style.display = "none";
-
       // Resetear el formulario
       data.reset();
 
@@ -681,8 +664,8 @@ function returne3uso(json, lyr) {
 
    // Función que maneja el evento del botón
   function handleClickReporte() {
-    console.log("Botón de reporte presionado, haciendo AJAX...");
-    console.log("Latitud: " + lat + ", Longitud: " + lng); // Mostrar las coordenadas
+    // console.log("Botón de reporte presionado, haciendo AJAX...");
+    // console.log("Latitud: " + lat + ", Longitud: " + lng); // Mostrar las coordenadas
 
     // Realizar la solicitud AJAX
     $.ajax({
@@ -694,30 +677,44 @@ function returne3uso(json, lyr) {
       },
       success: function (result) {
         sidebar.close();
-        console.log('Respuesta del servidor:', result);
-
-        // Procesar la respuesta
-        var data = JSON.parse(result);
-        console.log(data);
-        console.log(data.entorno, " data entorno *******************");
-        dictaminarS(data.entorno);
-
-        sidebar.open('consultaus');
 
         const iframe = document.getElementById('formacaptura-iframe');
         const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        const contenedors = iframeDocument.getElementById("form-total");
 
+        var data = JSON.parse(result);
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = data.entorno;
 
-        // frames es para aparecer el formulario que sea completo
-        const iframes = document.getElementById('formacaptura-iframe');
-        const iframeDocuments = iframes.contentDocument || iframes.contentWindow.document;
-        const contenedors = iframeDocuments.getElementById("form-total");
+        const p = tempDiv.querySelector("p");
+        const textoP = p ? p.textContent.trim() : "";
 
 
         if (contenedors) {
-          contenedors.style.display = "block";
-
+            if (textoP === "🚫 NO DICTAMINAR") {
+                contenedors.style.display = "none";
+                Swal.fire({
+                  title: '¡Aviso!',
+                  icon: 'info',
+                  html: `
+                    <p>En esta zona no se puede dictaminar el área. Por favor, vaya al siguiente enlace para darle seguimiento a su proceso:</p>
+                    <a href="https://www.zapopan.gob.mx/v3/" target="_blank">Ir al sitio web</a>
+                  `,
+                  confirmButtonText: 'Cerrar',
+                  backdrop: true,
+                  allowOutsideClick: false,
+                  allowEscapeKey: false,
+                });
+                
+              sidebar.close();
+                
+            } else {
+                contenedors.style.display = "block";
+                sidebar.open('consultaus');
+            }
         }
+
+
         document.getElementById('ngid').value = data.gid || '';
         document.getElementById('ngid').style.display = 'none';
         document.querySelector('[for="ngid"]').style.display = 'none';
@@ -730,7 +727,7 @@ function returne3uso(json, lyr) {
         boximg = boximg.replace("BOX(", "").replace(")", "").replace(/ /g, ",").replace(/,/g, ",");
         boximg = "[" + boximg + "]";
 
-        console.log(box);
+        // console.log(box);
 
         // Obtener dimensiones del contenedor
         const contenedor = iframeDocument.getElementById('preview-image');
@@ -754,7 +751,7 @@ function returne3uso(json, lyr) {
           "geomatica%3Aubicacion&viewparams=longitud%3A" + data.longitud_out + ";latitud%3A" + data.latitud_out +
           "&bbox=" + box + "&width=" + width + "&height=" + height + "&srs=EPSG%3A4326&format=image%2Fpng";
 
-        console.log(imageUrl);
+        // console.log(imageUrl);
 
         // Asignar URL al elemento de imagen
         const imageElement = iframeDocument.getElementById('preview-image');
