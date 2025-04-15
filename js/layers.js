@@ -542,7 +542,7 @@ function resetS() {
     if (multipleSelect2) {
       // 1. Obtener solo la primera opción (la vacía)
       const firstOption = multipleSelect2.querySelector('option[value=""]');
-      iframeDocuments.getElementById("titulo-secundario").textContent = "Seleccionar una opción"; //devolvemos el valor del titulo al inicio 
+      iframeDocuments.getElementById("titulo-secundario").textContent = "Seleccionar una opción 1"; //devolvemos el valor del titulo al inicio 
 
       // 2. Eliminar todos los hijos actuales (options)
       multipleSelect2.innerHTML = '';
@@ -554,7 +554,7 @@ function resetS() {
         // Si no existe, la creamos
         const emptyOption = iframeDocuments.createElement("option");
         emptyOption.value = "";
-        emptyOption.textContent = "Seleccionar una opción";
+        emptyOption.textContent = "Seleccionar una opción 2";
         multipleSelect2.appendChild(emptyOption);
       }
   
