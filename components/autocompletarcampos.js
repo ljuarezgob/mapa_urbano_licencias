@@ -6,10 +6,11 @@ $(document).ready(() => {
     const selectSecundario = document.querySelector('.select-busquedaSec');
     const emptyOptionExists = Array.from(selectSecundario.options).some(option => option.value === "");
 
-    function handlePrimarySelectChange(selectClass, impactoClass, factibilidadClass, areaClass, callbackSecondary) {
+    console.log(emptyOptionExists)
+    function handlePrimarySelectChange(selectClass, impactoClass, factibilidadClass, areaClass) {
         const selectRendered = $(selectClass).next('.select2').find('.select2-selection__rendered').attr("title");
         if (selectRendered) {
-            document.getElementById("titulo-primario").textContent = "Seleccionar una opción";
+            document.getElementById("titulo-primario").textContent = "Seleccionar una opción 1";
         }
 
         const valor = $(selectClass).val();
@@ -17,7 +18,10 @@ $(document).ready(() => {
             $(impactoClass).val("");
             $(factibilidadClass).val("");
             $(areaClass).val("");
-            if (typeof callbackSecondary === 'function') callbackSecondary();
+            $('.impactogiro2').val('');
+            $('.factibilidaduso2').val('');
+            $('#titulo-secundario').text("Secundario");;
+            $('.select-busquedaSec').val('').trigger('change');  // Limpia selección visual Select2
             return;
         }
 
@@ -39,32 +43,14 @@ $(document).ready(() => {
 
     function handleSecondarySelectChange(selectClass, impactoClass, factibilidadClass) {
         if (isChanging) return;
-
+        
+        
         const valor = $(selectClass).val();
         const selectElement = document.querySelector('.select-busquedaSec');
         const textoSeleccionado = selectElement?.options[selectElement.selectedIndex]?.text || "";
-
-        console.log(textoSeleccionado, " texto selecccionado hdc2")
+        
         if (selectElement) {
             document.getElementById("titulo-secundario").textContent = "Seleccionar una opción secu";
-        }
-
-        if (!valor || valor === "") {
-            isChanging = true;
-            $(impactoClass).val("");
-            $(factibilidadClass).val("");
-            document.getElementById("titulo-secundario").textContent = "Secundario";
-
-            if (!emptyOptionExists) {
-                const emptyOption = document.createElement("option");
-                emptyOption.value = "";
-                emptyOption.textContent = "";
-                selectSecundario.insertBefore(emptyOption, selectSecundario.firstChild);
-            }
-
-            $('.select-busquedaSec').val('').trigger('change');
-            isChanging = false;
-            return;
         }
 
         $.ajax({
@@ -74,9 +60,9 @@ $(document).ready(() => {
             data: { search: valor },
             success: function (response) {
                 if (response && response.length > 0) {
-                    const fact = response[0]?.fact_uso2 || "";
+                    const fact = response[0]?.fact_uso || "";
                     $(factibilidadClass).val(fact);
-                    $(impactoClass).val(response[0]?.impact_uso2 || "");
+                    $(impactoClass).val(response[0]?.impact_uso || "");
                     icons2(fact, textoSeleccionado);
                 }
             }
@@ -107,8 +93,7 @@ $(document).ready(() => {
             this,
             '.impactogiro',
             '.factibilidaduso',
-            '.areapredio',
-            () => handleSecondarySelectChange('.select-busquedaSec', '.impactogiro2', '.factibilidaduso2')
+            '.areapredio'
         );
     });
 

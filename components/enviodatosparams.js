@@ -152,7 +152,7 @@ function ImprimirFormulario() {
        return;
     }
 
-    if (checkboxEstado === true && (impactogiro2 === "" || factibilidaduso2 === "")) {
+    if (checkboxEstado === true && (impactogiro2 === "" || factibilidaduso2 === "" || selectbusqueda2 === "")) {
         window.sessionStorage.setItem("checkBoxls", 'true');
         return;
     }

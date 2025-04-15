@@ -14,7 +14,7 @@ $result_array = [];
 
 // echo $buscar;
 $query = "
-    SELECT gs.id_giro_sec AS ids, gs.nombre_giro_sec AS name, gs.factibilidad_uso_sec AS fact_uso2, gs.impacto_giro_sec AS impact_uso2
+    SELECT gs.id_giro_sec AS ids, gs.nombre_giro_sec AS name, gs.factibilidad_uso_sec AS fact_uso, gs.impacto_giro_sec AS impact_uso
     FROM giro_secu gs 
     WHERE gs.id_giro_sec = '$buscar'
     LIMIT 50;
