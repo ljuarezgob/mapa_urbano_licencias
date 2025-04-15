@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log(impactogiro, " impact giro 2 content");
     // console.log(factibilidaduso, " impact giro 2 content");
 
+    console.log(giroSolicitado, "giro solicitado en giroContent")
 
     let isChecked = checkboxEstado === "true";
 

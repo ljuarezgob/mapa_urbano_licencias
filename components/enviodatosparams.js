@@ -133,11 +133,12 @@ function ImprimirFormulario() {
     const areapredio = document.querySelector('.areapredio')?.value;
     //const entorno = document.getElementById('entorno').value;  // Aquí debería ser 'entorno' y no 'planparcial'
 
-    const selectbusqueda2 = document.querySelector('.select-busquedaSec')?.value; //el id  original está oculto de la libreria select2
+    let combo = document.getElementById("select-busquedaSecID");
+    let selectbusqueda2 = combo.options[combo.selectedIndex].text.trim();
+    
     const areapredio2 = document.querySelector('.areapredio2')?.value;
     const impactogiro2 = document.querySelector('.impactogiro2')?.value;
-    const factibilidaduso2 = document.querySelector('.factibilidaduso2')?.value;
-    
+    const factibilidaduso2 = document.querySelector('.factibilidaduso2')?.value;   
     //validaciones de los datos que entran al pdf
      
 
@@ -155,8 +156,6 @@ function ImprimirFormulario() {
         window.sessionStorage.setItem("checkBoxls", 'true');
         return;
     }
-
-
 
     // Crear los parámetros para enviar
     const params = new URLSearchParams({
@@ -186,6 +185,7 @@ function ImprimirFormulario() {
     // Abrir pdfimpresion.html en una nueva pestaña y pasar los parámetros
     const url = `pdfimpresion.html?${params.toString()}`;
     window.open(url, '_blank'); // '_blank' abre en una nueva pestaña
+
 }
 
 function cancelarFormulario() {
